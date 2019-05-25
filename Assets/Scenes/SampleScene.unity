@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 227050271}
   - component: {fileID: 227050270}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: GROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 1249421376}
   - component: {fileID: 1249421377}
   m_Layer: 0
-  m_Name: Template
+  m_Name: SpriteBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,9 +500,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1933270535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ea1de391d90db4489fa5614120fc30c, type: 3}
+  m_Script: {fileID: 11500000, guid: a4caedb8d406d364a8e58baf72f7184e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collider: {fileID: 0}
+  rigidBody: {fileID: 0}
+  spriteOrigin: {fileID: 1249421376}
+  controlX: 0
+  controlY: 0
 --- !u!50 &1933270539
 Rigidbody2D:
   serializedVersion: 4
