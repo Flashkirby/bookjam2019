@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Feature : MonoBehaviour
 {
+    public Person person;
     public SpriteRenderer spriteRenderer;
     /// <summary> Colour of feature </summary>
     public Color featureColor;
