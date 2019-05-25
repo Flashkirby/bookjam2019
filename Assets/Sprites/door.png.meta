@@ -38,7 +38,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -100,7 +100,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d33b707e2616fc4da13350fcf4fa7ee
+      spriteID: 8d4deee986544df4781c04ee6efbe182
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1d954ec4c6ccff49916094b36b8d9da
+      spriteID: 53526f288c2e151488b76c34062945d7
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: dac79649f9d7f024394d8a71cd0f9e33
+    spriteID: 98e4ef5178a4a5b44b4406efef357935
     vertices: []
     indices: 
     edges: []
