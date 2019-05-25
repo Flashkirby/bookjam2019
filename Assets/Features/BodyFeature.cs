@@ -16,27 +16,29 @@ public class BodyFeature : Feature
         get { return _frame; }
         set
         {
-            _frame = value;
+            Debug.Log("change to " + value);
             spriteRenderer.sprite = sprites[_frame];
+            _frame = value;
         }
     }
 
-    public void Awake()
+    void Awake()
     {
-        
+
     }
 
-    public void Start()
+    void Start()
     {
-
+        Frame = 1;
     }
 
     void Update()
     {
         animTime += Time.deltaTime;
-        while(animTime > animDelay)
+        if (animTime > animDelay)
         {
             animTime -= animDelay;
+            nextWalkFrame();
         }
     }
 

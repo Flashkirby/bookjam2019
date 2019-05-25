@@ -24,6 +24,10 @@ public class Person : MonoBehaviour
 
     public void Awake()
     {
+        features = new Knowledge();
+        Debug.Log("workplace is null");
+        Debug.Log("currentLocation is null");
+
         collider = GetComponent<BoxCollider2D>();
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.freezeRotation = true;
@@ -82,10 +86,12 @@ public class Person : MonoBehaviour
 
     public void FaceDirection(int direction)
     {
+        Vector3 scale = spriteOrigin.localScale;
         if (direction > 0)
-        { spriteOrigin.localScale.Z(1); }
+        { scale.z = 1; }
         else if (direction < 0)
-        { spriteOrigin.localScale.Z(1); }
+        { scale.z = -1; }
+        spriteOrigin.localScale = scale;
     }
 
     public enum RankEnum

@@ -10,14 +10,11 @@ public class Feature : MonoBehaviour
     /// <summary> Colour of feature </summary>
     public Color featureColor;
 
-    public void Awake()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    public void Start()
-    {
 
-    }
     void Update()
     {
         spriteRenderer.color = featureColor;

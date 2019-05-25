@@ -6,16 +6,20 @@ public class FeatureFactory : MonoBehaviour
 {
     public Person person;
 
-    public void Start()
+    void Start()
     {
-        //BodyFeature body = (BodyFeature)InstantiateFeature(Game.S.featureBodies[0]);
-        //person.features.SetBody(body, Logic.True);
+        BodyFeature body = (BodyFeature)InstantiateFeature(Game.S.featureBodies[0]);
+        person.features.SetBody(body, Logic.True);
     }
 
-    public Feature InstantiateFeature(GameObject featureObject)
+    public Feature InstantiateFeature(GameObject featureObject, int yOffset = 0)
     {
-        GameObject go = Instantiate(featureObject);
+        GameObject go = Instantiate(featureObject, person.spriteOrigin);
+        Vector3 position = go.transform.position;
+        position.y += yOffset;
+        go.transform.position = position;
         Feature feature = go.GetComponent<Feature>();
+        feature.person = person;
         return feature;
     }
 }
