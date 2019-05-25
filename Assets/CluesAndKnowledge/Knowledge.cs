@@ -20,6 +20,11 @@ public class Knowledge
         workplace = new Dictionary<Room, Logic>();
         currentLocation = new Dictionary<Room, Logic>();
     }
+
+    public void SetBody(BodyFeature feature, Logic logic)
+    {
+        body = new KeyValuePair<BodyFeature, Logic>(feature, logic);
+    }
 }
 
 public enum Logic
