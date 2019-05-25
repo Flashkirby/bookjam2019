@@ -23,7 +23,10 @@ public class Detective : Employee
     // FixedUpdate is called once per physics step
     void FixedUpdate()
     {
-        if(controlX > 0.3f || controlX < -0.3f)
+        if (controlX > 0.3f || controlX < -0.3f)
         { Walk(Utils.Dir(controlX)); }
+        else
+        { StopWalk(); }
+
     }
 }

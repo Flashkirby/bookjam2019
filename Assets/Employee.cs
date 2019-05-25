@@ -47,7 +47,29 @@ public class Employee : MonoBehaviour
         direction = Mathf.Clamp(direction, -1, 1);
         FaceDirection(direction);
 
-        rigidBody.velocity += new Vector2(direction, 0);
+        //Add new direction to current velocity
+        float newX = rigidBody.velocity.x + direction;
+
+        //Assign new velocity and limit walk speed
+        if (newX < Config.MAX_WALK_SPEED && newX > -Config.MAX_WALK_SPEED)
+        {
+            rigidBody.velocity = rigidBody.velocity.SetX(newX);
+        }
+        else if (newX >= Config.MAX_WALK_SPEED)
+        {
+            rigidBody.velocity = rigidBody.velocity.SetX(Config.MAX_WALK_SPEED);
+        }
+        else if (newX <= -Config.MAX_WALK_SPEED)
+        {
+            rigidBody.velocity = rigidBody.velocity.SetX(-Config.MAX_WALK_SPEED);
+        }
+
+
+    }
+
+    public void StopWalk()
+    {
+        rigidBody.velocity = rigidBody.velocity.SetX(0);
     }
 
     public void FaceDirection(int direction)
