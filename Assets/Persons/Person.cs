@@ -10,9 +10,15 @@ public class Person : MonoBehaviour
     public Rigidbody2D rigidBody;
     public Transform spriteOrigin;
 
-    /// <summary> Name in text used to refer to this in dialogue.  </summary>
-    public string DisplayName { get; set; }
+    /// <summary> List of their features that clues can be made from. </summary>
     public Knowledge features;
+    /// <summary> Where they work. </summary>
+    public Room workplace;
+    /// <summary> Which room they are currently in. </summary>
+    public Room currentLocation;
+
+    /// <summary> Name in text used to refer to this in dialogue.  </summary>
+    public string displayName;
 
     public void Awake()
     {
