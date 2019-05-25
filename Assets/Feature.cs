@@ -2,28 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets
+[RequireComponent(typeof(SpriteRenderer))]
+public class Feature : MonoBehaviour
 {
-    [RequireComponent(typeof(SpriteRenderer))]
-    public class Feature : MonoBehaviour
+    public SpriteRenderer spriteRenderer;
+    /// <summary> Colour of feature </summary>
+    public Color featureColor;
+
+    public void Awake()
     {
-        public SpriteRenderer spriteRenderer;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    public void Start()
+    {
 
-        public void Awake()
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-        public void Start()
-        {
+    }
+    void Update()
+    {
+        spriteRenderer.color = featureColor;
+        // TODO: Highlight
+        // TODO: Lowlight (desaturate)
 
-        }
-        void Update()
-        {
 
-        }
-        void FixedUpdate()
-        {
+    }
+    void FixedUpdate()
+    {
 
-        }
     }
 }
