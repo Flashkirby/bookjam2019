@@ -16,6 +16,8 @@ public class Person : MonoBehaviour
     public Room workplace;
     /// <summary> Which room they are currently in. </summary>
     public Room currentLocation;
+    /// <summary> What rank they are exec, CEO, etc.</summary>
+    public RankEnum rank;
 
     /// <summary> Name in text used to refer to this in dialogue.  </summary>
     public string displayName;
@@ -26,7 +28,7 @@ public class Person : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.freezeRotation = true;
 
-        DisplayName = "Person Smith"; //Generate New Name
+        displayName = "Person Smith"; //Generate New Name
 
         //features.Body.Add(Game.Get.Feature(), Logic.True);
     }
@@ -84,5 +86,13 @@ public class Person : MonoBehaviour
         { spriteOrigin.localScale.Z(1); }
         else if (direction < 0)
         { spriteOrigin.localScale.Z(1); }
+    }
+
+    public enum RankEnum
+    {
+        Employee,
+        Manager,
+        Executive,
+        CEO
     }
 }
