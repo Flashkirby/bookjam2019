@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
     //public List<GameObject> featurePoolFacialHair;
 
 
-    public List<Department> rooms;
+    public List<Room> rooms;
     public List<Person> employees;
 
     public Detective player;

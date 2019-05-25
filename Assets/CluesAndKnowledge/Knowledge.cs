@@ -9,21 +9,21 @@ public class Knowledge
 {
     private Dictionary<Feature, Logic> body;
     private Dictionary<Feature, Logic> ornaments;
-    private Dictionary<Department, Logic> workplace;
-    private Dictionary<Department, Logic> currentLocation;
+    private Dictionary<Room, Logic> workplace;
+    private Dictionary<Room, Logic> currentLocation;
 
     /// <summary> Features for the face, eg. hair, hat </summary>
     public Dictionary<Feature, Logic> Body { get; }
     public Dictionary<Feature, Logic> Ornaments { get; }
-    public Dictionary<Department, Logic> Workplace { get; }
-    public Dictionary<Department, Logic> CurrentLocation { get; }
+    public Dictionary<Room, Logic> Workplace { get; }
+    public Dictionary<Room, Logic> CurrentLocation { get; }
 
     public Knowledge()
     {
         body = new Dictionary<Feature, Logic>();
         ornaments = new Dictionary<Feature, Logic>();
-        workplace = new Dictionary<Department, Logic>();
-        currentLocation = new Dictionary<Department, Logic>();
+        workplace = new Dictionary<Room, Logic>();
+        currentLocation = new Dictionary<Room, Logic>();
     }
 }
 
