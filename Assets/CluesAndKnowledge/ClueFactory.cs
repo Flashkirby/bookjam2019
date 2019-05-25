@@ -61,19 +61,19 @@ public static class ClueFactory
         ClueTypes randomClueType = ClueTypes.TESTING;
         switch (Employee.rank)
         {
-            case Person.Rank.Employee:
+            case Person.RankEnum.Employee:
                 randomClueType = PickClueCategory(roll, LowLevelEmployeeClueProbs);
                 break;
 
-            case Person.Rank.Manager:
+            case Person.RankEnum.Manager:
                 randomClueType = PickClueCategory(roll, ManagerEmployeeClueProbs);
                 break;
 
-            case Person.Rank.Executive:
+            case Person.RankEnum.Executive:
                 randomClueType = PickClueCategory(roll, ExecEmployeeClueProbs);
                 break;
 
-            case Person.Rank.CEO:
+            case Person.RankEnum.CEO:
                 randomClueType = PickClueCategory(roll, CEOEmployeeClueProbs);
                 break;
 
@@ -86,7 +86,10 @@ public static class ClueFactory
         //
         //}
 
-        return new Clue(randomClueType);
+        //TODO: Pick feature
+        Feature feature = new Feature();
+
+        return new Clue(randomClueType, feature);
     }
 
     private static ClueTypes PickClueCategory(int randomRoll, Dictionary<ClueTypes, int> probabilities)
