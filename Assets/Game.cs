@@ -7,6 +7,7 @@ public class Game : MonoBehaviour
     private static Game game;
     public static Game S { get { if (game == null) { game = GameObject.FindGameObjectWithTag("GameController").GetComponent<Game>(); } return game; } }
 
+    public List<GameObject> featureBodies;
     public List<GameObject> featurePoolClothes;
     public List<GameObject> featurePoolClothesColour;
     public List<GameObject> featurePoolHair;

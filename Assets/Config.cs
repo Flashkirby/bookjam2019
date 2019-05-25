@@ -9,4 +9,5 @@ public static class Config
 
     public const float MAX_WALK_SPEED = 10;
 
+    public const float PIXEL = 0.1f;
 }
