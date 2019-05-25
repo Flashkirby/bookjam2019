@@ -7,9 +7,18 @@ public class Game : MonoBehaviour
     private static Game game;
     public static Game S { get { if (game == null) { game = GameObject.FindGameObjectWithTag("GameController").GetComponent<Game>(); } return game; } }
 
-    public List<GameObject> featurePool;
+    public List<GameObject> featurePoolClothes;
+    public List<GameObject> featurePoolClothesColour;
+    public List<GameObject> featurePoolHair;
+    public List<GameObject> featurePoolHairColour;
+    public List<GameObject> featurePoolHat;
+    public List<GameObject> featurePoolHatColour;
+
+    //public List<GameObject> featurePoolFacialHair;
+
+
     public List<Department> rooms;
-    public List<Employee> employees;
+    public List<Person> employees;
 
     public Detective player;
 
