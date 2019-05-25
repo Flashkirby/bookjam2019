@@ -16,12 +16,11 @@ public class Clue : Knowledge
     public Clue(ClueTypes clueType, Feature feature)
     {
         this.clueType = clueType;
-
+        this.feature = feature;
 
         switch (this.clueType)
         {
             case ClueTypes.Useless:
-
                 break;
             case ClueTypes.Vague:
                 break;
@@ -42,22 +41,32 @@ public class Clue : Knowledge
 
         if(clueType == ClueTypes.Vague)
         {
-            baseString += "They are ";
+            baseString = "They are ";
         }
 
         if (clueType == ClueTypes.Unsure)
         {
-            baseString += "They are either ";
+            baseString = "They are either ";
         }
 
         if (clueType == ClueTypes.Perfect)
         {
-            baseString += "They are definitely ";
+            baseString = "They are definitely ";
         }
 
+        string featureVerb; //TODO:
+        string featureSubject; //TODO:
 
+        string endingString = ".";
+        if (clueType == ClueTypes.Unsure)
+        {
+            Feature fakeFeature; //TODO:
+            endingString = " or PUTSOMETHING HERE.";
+        }
 
-        return "";
+        baseString += endingString;
+
+        return baseString;
     }
 
     public override string ToString()
@@ -67,9 +76,40 @@ public class Clue : Knowledge
 
     public string generateDialogue()
     {
-        return "";
+
+        string baseString = "";
+        if (clueType == ClueTypes.Useless)
+        {
+            return "I don't know anything";
+        }
+
+        if (clueType == ClueTypes.Vague)
+        {
+            baseString = "They're probably ";
+        }
+
+        if (clueType == ClueTypes.Unsure)
+        {
+            baseString = "I'm not sure. They might be ";
+        }
+
+        if (clueType == ClueTypes.Perfect)
+        {
+            baseString = "They are ";
+        }
+
+        string featureVerb; //TODO:
+        string featureSubject; //TODO:
+
+        string endingString = ".";
+        if (clueType == ClueTypes.Unsure)
+        {
+            Feature fakeFeature; //TODO:
+            endingString = " or PUTSOMETHING HERE.";
+        }
+
+        baseString += endingString;
+
+        return baseString;
     }
-
-
-
 }
