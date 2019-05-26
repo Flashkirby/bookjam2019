@@ -20,6 +20,31 @@ public class FactBook : MonoBehaviour
         pageOne.text = "";
         pageTwo.text = "";
         clueList.Add("Their name is John Smith.");
+        clueList.Add("They are wearing a red hat.");
+        clueList.Add("They are either on the 3rd or 4th floor.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("Their name is John Smith.");
     }
 
     // Update is called once per frame
@@ -75,7 +100,7 @@ public class FactBook : MonoBehaviour
             testPage.text = testPageText;
 
 
-            if (pageLines(testPage) >= 19 ){
+            if (pageLines(testPage) >= 18 ){
                 whichPage = 1;
             }
 
