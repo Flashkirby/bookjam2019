@@ -145,4 +145,23 @@ public class Game : MonoBehaviour
         Game.S.detective.inMenu = false;
         splashScreen.CloseSplashScreen();
     }
+
+    /// <summary> Iterates through each prefab list, matching by name. </summary>
+    /// <returns> Refernece to the pool that the feature belongs to, or null</returns>
+    public List<GameObject> GetPoolSharingFeature(Feature feature)
+    {
+        if (featurePoolShortHair.Find(o => o.name == feature.name) != null) { return featurePoolShortHair; }
+        if (featurePoolLongHair.Find(o => o.name == feature.name) != null) { return featurePoolLongHair; }
+        if (featurePoolHat.Find(o => o.name == feature.name) != null) { return featurePoolHat; }
+        if (featurePoolGlasses.Find(o => o.name == feature.name) != null) { return featurePoolGlasses; }
+        return null;
+    }
+
+    /// <summary> Index of feature, in the given pool. </summary>
+    /// <returns>The index of the feature in the pool, or -1</returns>
+    public int getIndexOfFeature(List<GameObject> pool, Feature feature)
+    {
+        GameObject matchingPrefab = pool.Find(o => o.name == feature.name);
+        return pool.IndexOf(matchingPrefab);
+    }
 }
