@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Config;
 
 public class Building : MonoBehaviour
 {
     public List<Floor> allFloors;
     public List<Room> allRooms;
+    public List<LiftShaft> allLifts;
 
     void Awake()
     {
@@ -46,6 +48,19 @@ public class Building : MonoBehaviour
             }
             firstFloor = false;
         }
+
+        allLifts = new List<LiftShaft>(GetComponentsInChildren<LiftShaft>());
+        allLifts.Sort((left, right) => (int)(left.transform.position.y - right.transform.position.y));
+        foreach (LiftShaft shaft in allLifts)
+        {
+            // Set the shaft size to match floor count
+            shaft.sceneExtendableShaftRenderer.size = shaft.sceneExtendableShaftRenderer.size.SetY(FLOOR_HEIGHT * allFloors.Count);
+
+            // Set the shaft walls to match the shaft size
+            shaft.sceneShaftWalls.transform.localScale = shaft.sceneShaftWalls.transform.localScale.SetY3(shaft.sceneExtendableShaftRenderer.size.y);
+
+            shaft.building = this;
+        }
     }
 
     // Start is called before the first frame update
@@ -57,8 +72,36 @@ public class Building : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
+    public int Clamp2Floor(int floorNumber)
+    {
+        return Mathf.Clamp(floorNumber, 0, allFloors.Count - 1);
+    }
+    public Floor getFloor(int index)
+    {
+        return allFloors[Clamp2Floor(index)];
+    }
+
+    /// <summary>
+    /// Get nearby floor or null
+    /// </summary>
+    public Floor getNearestFloor(float y)
+    {
+        foreach(var floor in allFloors)
+        {
+            if((int)(y / 2) == (int)(floor.transform.position.y / 2))
+            {
+                return floor;
+            }
+        }
+        return null;
+    }
+    public Floor getNearestFloor(Transform transform)
+    { return getNearestFloor(transform.position.y); }
+    public int getNearestFloorNumber(float yPosition)
+    { return allFloors.IndexOf(getNearestFloor(yPosition)); }
 
     //public List<Department> GetDepartments()
     //{

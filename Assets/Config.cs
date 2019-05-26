@@ -12,4 +12,8 @@ public static class Config
     public const float PIXEL = 0.0625f;
 
     public const float CONTROL_DEADZONE = 0.3f;
+
+    public const float FLOOR_HEIGHT = 6;
+
+    public const float LIFT_SPEED = 1f;
 }
