@@ -12,6 +12,7 @@ public class Building : MonoBehaviour
         allFloors = new List<Floor>(GetComponentsInChildren<Floor>());
         allFloors.Sort((left, right) => (int)(left.transform.position.y - right.transform.position.y));
 
+        bool firstFloor = true;
         foreach (Floor floor in allFloors)
         {
             List<Room> floorRooms = new List<Room>(floor.GetComponentsInChildren<Room>());
@@ -24,7 +25,26 @@ public class Building : MonoBehaviour
             {
                 room.building = this;
                 room.floor = floor;
+
+                if(firstFloor)
+                {
+                    room.SetLeftOpen(true);
+                    room.SetRightOpen(true);
+                }
+                else
+                {
+                    bool left = true;
+                    bool right = true;
+                    if(floorRooms.IndexOf(room) == 0)
+                    { left = false; }
+                    else if (floorRooms.IndexOf(room) == floorRooms.Count - 1)
+                    { right = false; }
+
+                    room.SetLeftOpen(left);
+                    room.SetRightOpen(right);
+                }
             }
+            firstFloor = false;
         }
     }
 
