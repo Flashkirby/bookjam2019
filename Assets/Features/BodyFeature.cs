@@ -16,7 +16,6 @@ public class BodyFeature : Feature
         get { return _frame; }
         set
         {
-            Debug.Log("change to " + value);
             spriteRenderer.sprite = sprites[_frame];
             _frame = value;
         }

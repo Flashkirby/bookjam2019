@@ -15,6 +15,7 @@ public class FeatureFactory : MonoBehaviour
     public Feature InstantiateFeature(GameObject featureObject, int yOffset = 0)
     {
         GameObject go = Instantiate(featureObject, person.spriteOrigin);
+        go.name = featureObject.name; // Use the gameobject name to identify the unique-ness of a feature eg. RedTrilby
         Vector3 position = go.transform.position;
         position.y += yOffset;
         go.transform.position = position;

@@ -8,11 +8,14 @@ public class Feature : MonoBehaviour
     public Person person;
     public SpriteRenderer spriteRenderer;
     /// <summary> Colour of feature </summary>
-    public Color featureColor;
+    private Color featureColor;
+
+    public string displayColour;
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        featureColor = spriteRenderer.color;
     }
 
     void Update()
