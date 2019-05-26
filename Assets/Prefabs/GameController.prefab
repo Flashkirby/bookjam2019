@@ -149,12 +149,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   featureBodies:
   - {fileID: 5580055000238847261, guid: 39a3a2f81c9ccec47a3302642e39dd80, type: 3}
-  featurePoolClothes: []
-  featurePoolClothesColour: []
-  featurePoolHair: []
-  featurePoolHairColour: []
-  featurePoolHat: []
-  featurePoolHatColour: []
+  featurePoolShortHair:
+  - {fileID: 7642506603834718373, guid: c9dbd65e5c89da040b5165967ec66b01, type: 3}
+  - {fileID: 7763419484329149465, guid: 63659a8d5a3c6a045a1c27a94b1bf3a2, type: 3}
+  - {fileID: 4031874031913669799, guid: da597d7ee6a02be47bd6c97d87ab5900, type: 3}
+  featurePoolLongHair:
+  - {fileID: 4031874031913669799, guid: 48a51e991017c964bba3105a1364331a, type: 3}
+  - {fileID: 8868441440063550701, guid: 30add06e0d7b3de4d9b3d7f5fff131cc, type: 3}
+  featurePoolHat:
+  - {fileID: 0}
+  - {fileID: 0}
+  featurePoolGlasses: []
+  featurePoolBadge:
+  - {fileID: 0}
   rooms: []
   employees: []
-  player: {fileID: 0}
+  detective: {fileID: 0}

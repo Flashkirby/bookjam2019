@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Feautres that sit on a body feature
+/// </summary>
 public class HairFeature : Feature
 {
-    public void Start()
+    void Start()
     {
 
     }

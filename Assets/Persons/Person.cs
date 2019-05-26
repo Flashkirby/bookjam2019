@@ -25,7 +25,12 @@ public class Person : MonoBehaviour
     public bool isWalking;
     public bool interacted;
 
-    public void Awake()
+    public string featureNameList;
+    public List<string> _debugFeaturDisplayList;
+
+    public bool featuresInitialised { get { return features.body.Key != null; } }
+
+    void Awake()
     {
         features = new Knowledge();
         Debug.Log("workplace is null");
@@ -36,11 +41,23 @@ public class Person : MonoBehaviour
         rigidBody.freezeRotation = true;
 
         displayName = "Person Smith"; //Generate New Name
-
-        //features.Body.Add(Game.Get.Feature(), Logic.True);
     }
 
-    public void Start()
+    /// <summary>
+    /// Called during Start, after features are initliased (in FeatureFactory)
+    /// </summary>
+    public void PostFeatureStart()
+    {
+        Debug.Log("generated person");
+        featureNameList += features.body.Key.name;
+        foreach (var feature in features.ornaments)
+        {
+            featureNameList += feature.Key.name;
+            _debugFeaturDisplayList.Add(feature.Key.displayColour + feature.Key.displayName);
+        }
+    }
+
+    void Start()
     {
         Game.S.employees.Add(this);
     }

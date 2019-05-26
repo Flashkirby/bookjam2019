@@ -8,12 +8,11 @@ public class Game : MonoBehaviour
     public static Game S { get { if (game == null) { game = GameObject.FindGameObjectWithTag("GameController").GetComponent<Game>(); } return game; } }
 
     public List<GameObject> featureBodies;
-    public List<GameObject> featurePoolClothes;
-    public List<GameObject> featurePoolClothesColour;
-    public List<GameObject> featurePoolHair;
-    public List<GameObject> featurePoolHairColour;
+    public List<GameObject> featurePoolShortHair;
+    public List<GameObject> featurePoolLongHair;
     public List<GameObject> featurePoolHat;
-    public List<GameObject> featurePoolHatColour;
+    public List<GameObject> featurePoolGlasses;
+    public List<GameObject> featurePoolBadge;
 
     //public List<GameObject> featurePoolFacialHair;
 
