@@ -11,8 +11,8 @@ public class Feature : MonoBehaviour
     public Person person;
     public SpriteRenderer spriteRenderer;
     /// <summary> Colour of feature </summary>
-    private Color featureColour;
-    public Color FeatureColour { get { return featureColour; } }
+    private Color originalFeatureColour;
+    public Color FeatureColour { get { return originalFeatureColour; } set { originalFeatureColour = value; } }
 
     /// <summary> They're the one wearing the "hat" over there. You can find them by their signature red "hat". </summary>
     public string displayName; 
@@ -24,22 +24,22 @@ public class Feature : MonoBehaviour
     public string verbProgressive;
     /// <summary> They "wear" a stetson. They sometimes "wear" a hat. </summary>
     public string verbPerfect;
-    
-    void Awake()
+
+    public void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        featureColour = spriteRenderer.color;
+        originalFeatureColour = spriteRenderer.color;
     }
 
-    void Update()
+    public void Update()
     {
-        spriteRenderer.color = featureColour;
+        spriteRenderer.color = originalFeatureColour;
         // TODO: Highlight
         // TODO: Lowlight (desaturate)
 
 
     }
-    void FixedUpdate()
+    public void FixedUpdate()
     {
 
     }

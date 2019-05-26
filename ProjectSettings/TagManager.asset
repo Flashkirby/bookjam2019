@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - FactBook
+  - Employee
   layers:
   - Default
   - TransparentFX

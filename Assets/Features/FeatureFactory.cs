@@ -12,17 +12,21 @@ public class FeatureFactory : MonoBehaviour
 
     void Start()
     {
-        BodyFeature body = InstantiateBodyFeature();
+        Debug.Log("Generating Person");
+
+        BodyFeature body = InstantiateBodyFeature(person);
         int offset = body.headPixelYOffset;
 
-        InstantiateHairFeature(null, offset);
-        InstantiateHatFeature(null, offset);
-        InstantiateFaceFeature(null, offset);
+        InstantiateHairFeature(person, null, offset);
+        InstantiateHatFeature(person, null, offset);
+        InstantiateFaceFeature(person, null, offset);
+
+        person.GenerateAdditionalFeatures(offset);
 
         person.PostFeatureStart();
     }
 
-    public Feature InstantiateFeature(GameObject prefabFeature, int yPixelOffset = 0)
+    public static Feature InstantiateFeature(Person person, GameObject prefabFeature, int yPixelOffset = 0)
     {
         if (prefabFeature == null) return null;
         GameObject go = Instantiate(prefabFeature, person.spriteOrigin);
@@ -35,7 +39,7 @@ public class FeatureFactory : MonoBehaviour
         return feature;
     }
 
-    public BodyFeature InstantiateBodyFeature(GameObject prefabBodyFeature = null)
+    public BodyFeature InstantiateBodyFeature(Person person, GameObject prefabBodyFeature = null)
     {
         if(prefabBodyFeature == null)
         {
@@ -43,12 +47,12 @@ public class FeatureFactory : MonoBehaviour
             prefabBodyFeature = Game.S.featureBodies[0];
         }
 
-        BodyFeature body = (BodyFeature)InstantiateFeature(prefabBodyFeature);
+        BodyFeature body = (BodyFeature)InstantiateFeature(person, prefabBodyFeature);
         person.features.SetBody(body, Logic.True);
         return body;
     }
 
-    public void InstantiateHairFeature(GameObject prefabFeature = null, int yPixelOffset = 0)
+    public static void InstantiateHairFeature(Person person, GameObject prefabFeature = null, int yPixelOffset = 0)
     {
         if (prefabFeature == null)
         {
@@ -61,11 +65,11 @@ public class FeatureFactory : MonoBehaviour
             if (prefabFeature == null) return;
         }
 
-        Feature feature = InstantiateFeature(prefabFeature, yPixelOffset);
+        Feature feature = InstantiateFeature(person, prefabFeature, yPixelOffset);
         person.features.ornaments.Add(feature, Logic.True);
     }
 
-    public void InstantiateHatFeature(GameObject prefabFeature = null, int yPixelOffset = 0)
+    public static void InstantiateHatFeature(Person person, GameObject prefabFeature = null, int yPixelOffset = 0)
     {
         if (prefabFeature == null)
         {
@@ -73,11 +77,11 @@ public class FeatureFactory : MonoBehaviour
             if (prefabFeature == null) return;
         }
 
-        Feature feature = InstantiateFeature(prefabFeature, yPixelOffset);
+        Feature feature = InstantiateFeature(person, prefabFeature, yPixelOffset);
         person.features.ornaments.Add(feature, Logic.True);
     }
 
-    public void InstantiateFaceFeature(GameObject prefabFeature = null, int yPixelOffset = 0)
+    public static void InstantiateFaceFeature(Person person, GameObject prefabFeature = null, int yPixelOffset = 0)
     {
         if (prefabFeature == null)
         {
@@ -89,7 +93,7 @@ public class FeatureFactory : MonoBehaviour
             if (prefabFeature == null) return;
         }
 
-        Feature feature = InstantiateFeature(prefabFeature, yPixelOffset);
+        Feature feature = InstantiateFeature(person, prefabFeature, yPixelOffset);
         person.features.ornaments.Add(feature, Logic.True);
     }
 }

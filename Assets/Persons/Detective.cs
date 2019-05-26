@@ -13,14 +13,16 @@ public class Detective : Person
     public float anxiety;
 
     // Start is called before the first frame update, after being enabled
-    void Start()
+    public new void Start()
     {
-
+        base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    public new void Update()
     {
+        base.Update();
+
         controlX = Input.GetAxisRaw("Horizontal");
         controlY = Input.GetAxisRaw("Vertical");
 
@@ -29,8 +31,10 @@ public class Detective : Person
     }
 
     // FixedUpdate is called once per physics step
-    void FixedUpdate()
+    public new void FixedUpdate()
     {
+        base.Start();
+
         if (!inMenu)
         {
             if (Utils.isAxisActive(controlX))

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,18 +13,13 @@ public class Person : MonoBehaviour
 
     /// <summary> List of their features that clues can be made from. </summary>
     public Knowledge features;
-    /// <summary> Where they work. </summary>
-    public Room workplace;
-    /// <summary> Which room they are currently in. </summary>
-    public Room currentLocation;
-    /// <summary> What rank they are exec, CEO, etc.</summary>
-    public RankEnum rank;
 
     /// <summary> Name in text used to refer to this in dialogue.  </summary>
     public string displayName;
 
     public bool isFacingRight { get { return transform.localScale.x > 0; } }
     public bool isWalking;
+
     public bool interacted;
 
     public string featureNameList;
@@ -31,7 +27,7 @@ public class Person : MonoBehaviour
 
     public bool featuresInitialised { get { return features.body.Key != null; } }
 
-    void Awake()
+    public void Awake()
     {
         features = new Knowledge();
         Debug.Log("workplace is null");
@@ -44,29 +40,33 @@ public class Person : MonoBehaviour
         displayName = "Person Smith"; //Generate New Name
     }
 
+    /// <summary> Override this in subclasses for more features </summary>
+    public virtual void GenerateAdditionalFeatures(int yPixelOffset) { }
+
     /// <summary>
     /// Called during Start, after features are initliased (in FeatureFactory)
     /// </summary>
     public void PostFeatureStart()
     {
-        Debug.Log("generated person");
         featureNameList += features.body.Key.name;
         foreach (var feature in features.ornaments)
         {
             featureNameList += feature.Key.name;
             _debugFeaturDisplayList.Add(feature.Key.displayColour + feature.Key.displayName);
         }
+        Debug.Log("generated person " + _debugFeaturDisplayList);
     }
 
-    void Start()
+
+    public void Start()
     {
         Game.S.employees.Add(this);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        foreach(var feature in features.ornaments)
+        foreach (var feature in features.ornaments)
         {
             //feature.Key
         }
@@ -75,25 +75,20 @@ public class Person : MonoBehaviour
     }
 
     // FixedUpdate is called once per physics step
-    void FixedUpdate()
+    public void FixedUpdate()
     {
 
     }
 
+    // hack animation driver
     private void AnimationDriver()
     {
-
-        // hack animation driver
-        if (features.body.Key)
+        isWalking = false;
+        if (Mathf.Abs(rigidBody.velocity.x) > 0.01f)
         {
-            isWalking = false;
-            if (Mathf.Abs(rigidBody.velocity.x) > 0.1f)
-            {
-                isWalking = true;
-            }
-
-            features.body.Key.isWalking = isWalking;
+            isWalking = true;
         }
+        features.body.Key.isWalking = isWalking;
     }
 
     public void Walk(int direction)
@@ -136,6 +131,7 @@ public class Person : MonoBehaviour
         spriteOrigin.localScale = scale;
     }
 
+    // TODO: move this to employee maybe
     public enum RankEnum
     {
         Employee,

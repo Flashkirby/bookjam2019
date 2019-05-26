@@ -158,10 +158,15 @@ MonoBehaviour:
   - {fileID: 8868441440063550701, guid: 30add06e0d7b3de4d9b3d7f5fff131cc, type: 3}
   featurePoolHat:
   - {fileID: 0}
+  - {fileID: 674390152042871252, guid: 3cdd39d8bf8ba934c9c2e0d2eac0fb43, type: 3}
+  featurePoolGlasses:
   - {fileID: 0}
-  featurePoolGlasses: []
+  - {fileID: 1786524508792456878, guid: 432ec210b57ef3b478060458859f3da3, type: 3}
   featurePoolBadge:
-  - {fileID: 0}
+  - {fileID: 8582145391314291784, guid: 9eb44d38208bfe04bb39017009c93095, type: 3}
+  - {fileID: 8582145391314291784, guid: dc0f61473186b41418be285ed76e8529, type: 3}
+  - {fileID: 8582145391314291784, guid: db347d89fcee2f94eb6523179c044cfb, type: 3}
+  - {fileID: 8582145391314291784, guid: 2e2cbbc8f29f33743806cfc467463024, type: 3}
   rooms: []
   employees: []
   detective: {fileID: 0}

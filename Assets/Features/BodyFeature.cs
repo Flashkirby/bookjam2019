@@ -23,25 +23,27 @@ public class BodyFeature : Feature
     
     public bool isWalking = false;
 
-    void Awake()
+    public new void Awake()
     {
-
+        base.Awake();
     }
 
-    void Start()
+    public new void Start()
     {
-        Frame = 1;
+        //base.Start();
     }
 
-    void Update()
+    public new void Update()
     {
-        if(isWalking)
+        base.Update();
+
+        if (isWalking)
         {
-            animTime += Time.deltaTime;
-            if (animTime > animDelay)
+            animTime -= Time.deltaTime;
+            if (animTime <= 0)
             {
-                animTime -= animDelay;
                 nextWalkFrame();
+                animTime += animDelay;
             }
         }
         else
@@ -51,9 +53,9 @@ public class BodyFeature : Feature
         }
     }
 
-    void FixedUpdate()
+    public new void FixedUpdate()
     {
-
+        base.FixedUpdate();
     }
 
     public void nextWalkFrame()
@@ -63,11 +65,8 @@ public class BodyFeature : Feature
             case 1:
                 Frame = 2;
                 break;
-            case 2:
-                Frame = 1;
-                break;
             default:
-                Frame = 0;
+                Frame = 1;
                 break;
         }
     }
