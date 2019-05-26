@@ -13,6 +13,8 @@ public class Detective : Person
 
     public float anxiety;
 
+    public InteractHighlighter interactHighlighter;
+
     // Start is called before the first frame update, after being enabled
     public new void Start()
     {
