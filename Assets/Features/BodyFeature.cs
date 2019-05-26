@@ -20,6 +20,8 @@ public class BodyFeature : Feature
             _frame = value;
         }
     }
+    
+    public bool isWalking = false;
 
     void Awake()
     {
@@ -33,11 +35,19 @@ public class BodyFeature : Feature
 
     void Update()
     {
-        animTime += Time.deltaTime;
-        if (animTime > animDelay)
+        if(isWalking)
         {
-            animTime -= animDelay;
-            nextWalkFrame();
+            animTime += Time.deltaTime;
+            if (animTime > animDelay)
+            {
+                animTime -= animDelay;
+                nextWalkFrame();
+            }
+        }
+        else
+        {
+            animTime = 0;
+            Frame = 0;
         }
     }
 

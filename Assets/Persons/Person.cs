@@ -22,6 +22,9 @@ public class Person : MonoBehaviour
     /// <summary> Name in text used to refer to this in dialogue.  </summary>
     public string displayName;
 
+    public bool isWalking;
+    public bool interacted;
+
     public void Awake()
     {
         features = new Knowledge();
@@ -45,13 +48,34 @@ public class Person : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foreach(var feature in features.ornaments)
+        {
+            //feature.Key
+        }
 
+        AnimationDriver();
     }
 
     // FixedUpdate is called once per physics step
     void FixedUpdate()
     {
 
+    }
+
+    private void AnimationDriver()
+    {
+
+        // hack animation driver
+        if (features.body.Key)
+        {
+            isWalking = false;
+            if (Mathf.Abs(rigidBody.velocity.x) > 0.1f)
+            {
+                isWalking = true;
+            }
+
+            features.body.Key.isWalking = isWalking;
+        }
     }
 
     public void Walk(int direction)
