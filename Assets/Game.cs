@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -35,6 +36,11 @@ public class Game : MonoBehaviour
     {
         detective = GameObject.FindGameObjectWithTag("Player").GetComponent<Detective>();
         if (detective == null) { Debug.LogError("Game cannot start without a player", game); }
+    }
+
+    internal void PostBuildingAwake(Building building)
+    {
+        rooms = building.allRooms;
     }
 
     // Start is called before the first frame update, after being enabled
@@ -95,25 +101,25 @@ public class Game : MonoBehaviour
         { availableIndexList.Add(i); }
 
         // Employee
-        randomIndex = availableIndexList[Random.Range(0, availableIndexList.Count)];
+        randomIndex = availableIndexList[UnityEngine.Random.Range(0, availableIndexList.Count)];
         rankBadgeDict.Add(Person.RankEnum.Employee, randomIndex);
         Debug.Log("Employee Badge: " + getPrefabBadgeFromRank(Person.RankEnum.Employee).GetComponent<Feature>().name);
         availableIndexList.Remove(randomIndex);
 
         // Manager
-        randomIndex = availableIndexList[Random.Range(0, availableIndexList.Count)];
+        randomIndex = availableIndexList[UnityEngine.Random.Range(0, availableIndexList.Count)];
         rankBadgeDict.Add(Person.RankEnum.Manager, randomIndex);
         Debug.Log("Manager Badge: " + getPrefabBadgeFromRank(Person.RankEnum.Manager).GetComponent<Feature>().name);
         availableIndexList.Remove(randomIndex);
 
         // Executive
-        randomIndex = availableIndexList[Random.Range(0, availableIndexList.Count)];
+        randomIndex = availableIndexList[UnityEngine.Random.Range(0, availableIndexList.Count)];
         rankBadgeDict.Add(Person.RankEnum.Executive, randomIndex);
         Debug.Log("Exec Badge: " + getPrefabBadgeFromRank(Person.RankEnum.Executive).GetComponent<Feature>().name);
         availableIndexList.Remove(randomIndex);
 
         // CEO
-        randomIndex = availableIndexList[Random.Range(0, availableIndexList.Count)];
+        randomIndex = availableIndexList[UnityEngine.Random.Range(0, availableIndexList.Count)];
         rankBadgeDict.Add(Person.RankEnum.CEO, randomIndex);
         Debug.Log("CEO Badge: " + getPrefabBadgeFromRank(Person.RankEnum.CEO).GetComponent<Feature>().name);
         availableIndexList.Remove(randomIndex);

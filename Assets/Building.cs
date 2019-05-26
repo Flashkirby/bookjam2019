@@ -61,6 +61,8 @@ public class Building : MonoBehaviour
 
             shaft.building = this;
         }
+
+        Game.S.PostBuildingAwake(this);
     }
 
     // Start is called before the first frame update
