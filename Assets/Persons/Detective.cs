@@ -10,6 +10,8 @@ public class Detective : Person
 
     public bool inMenu;
 
+    public float anxiety;
+
     // Start is called before the first frame update, after being enabled
     void Start()
     {
@@ -36,6 +38,9 @@ public class Detective : Person
             else
             { StopWalk(); }
         }
+
+        UpdateAnxiety();
+
     }
 
     void Interact()
@@ -46,6 +51,14 @@ public class Detective : Person
             {
                 Debug.Log("Interaction!");
             }
+        }
+    }
+
+    void UpdateAnxiety()
+    {
+        if (!inMenu)
+        {
+            anxiety += (0.0083f * Time.fixedDeltaTime) / 6;
         }
     }
 }

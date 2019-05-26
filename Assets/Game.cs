@@ -26,8 +26,8 @@ public class Game : MonoBehaviour
     // Awake is called on initialisation, before the component becomes active
     void Awake()
     {
-        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Detective>();
-        //if (player == null) { Debug.LogError("Game cannot start without a player", game); }
+        detective = GameObject.FindGameObjectWithTag("Player").GetComponent<Detective>();
+        if (detective == null) { Debug.LogError("Game cannot start without a player", game); }
     }
 
     // Start is called before the first frame update, after being enabled

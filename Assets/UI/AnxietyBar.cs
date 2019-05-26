@@ -9,9 +9,9 @@ public class AnxietyBar : MonoBehaviour
     public Slider slider;
     public Text displayText;
 
-
     // Create a property to handle the slider's value
     private float currentValue = 0f;
+
     public float CurrentValue
     {
         get
@@ -30,17 +30,15 @@ public class AnxietyBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentValue = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        CurrentValue = Game.S.detective.anxiety;
     }
 
     void FixedUpdate()
     {
-        CurrentValue += 0.0043f;
     }
 }
