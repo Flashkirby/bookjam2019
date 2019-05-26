@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
 
     private Dictionary<Person.RankEnum, int> rankBadgeDict;
 
-    public List<Room> rooms;
+    public Building building;
     public List<Employee> employees;
 
     public Employee target;
@@ -40,7 +40,7 @@ public class Game : MonoBehaviour
 
     internal void PostBuildingAwake(Building building)
     {
-        rooms = building.allRooms;
+        this.building = building;
     }
 
     // Start is called before the first frame update, after being enabled
