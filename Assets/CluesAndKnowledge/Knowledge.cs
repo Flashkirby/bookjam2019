@@ -25,6 +25,19 @@ public class Knowledge
     {
         body = new KeyValuePair<BodyFeature, Logic>(feature, logic);
     }
+
+    public List<Feature> getTrueOrnaments()
+    {
+        var trueFeatures = new List<Feature>();
+        foreach(var feature in trueFeatures)
+        {
+            if(ornaments[feature] == Logic.True)
+            {
+                trueFeatures.Add(feature);
+            }
+        }
+        return trueFeatures;
+    }
 }
 
 public enum Logic

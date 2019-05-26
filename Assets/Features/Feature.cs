@@ -43,4 +43,14 @@ public class Feature : MonoBehaviour
     {
 
     }
+
+    /// <summary> Features are equal as long as they share the same Gameobject name (prefab name) </summary>
+    public override bool Equals(object other)
+    {
+        if(other is Feature)
+        {
+            return gameObject.name == ((Feature)other).name);
+        }
+        return false;
+    }
 }
