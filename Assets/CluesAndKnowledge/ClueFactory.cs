@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 public static class ClueFactory
@@ -50,16 +47,16 @@ public static class ClueFactory
     //Manager of the employee
 
 
-    public static Clue GenerateRandomClueFromEmployeeAndTarget(Person Employee, Person Target)
+    public static Clue GenerateRandomClueFromEmployeeAndTarget(Employee employee, Employee target)
     {
         // TODO: Logic here please.
 
-        Random random = new System.Random();
+        Random random = new Random();
         int roll = random.Next(1, 101);
 
         //Generating random clue type
         ClueTypes randomClueType = ClueTypes.TESTING;
-        switch (Employee.rank)
+        switch (employee.rank)
         {
             case Person.RankEnum.Employee:
                 randomClueType = PickClueCategory(roll, LowLevelEmployeeClueProbs);
