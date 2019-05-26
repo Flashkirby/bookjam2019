@@ -49,7 +49,7 @@ public class Feature : MonoBehaviour
     {
         if(other is Feature)
         {
-            return gameObject.name == ((Feature)other).name);
+            return gameObject.name == ((Feature)other).name;
         }
         return false;
     }
