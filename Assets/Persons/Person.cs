@@ -22,6 +22,7 @@ public class Person : MonoBehaviour
     /// <summary> Name in text used to refer to this in dialogue.  </summary>
     public string displayName;
 
+    public bool isFacingRight { get { return transform.localScale.x > 0; } }
     public bool isWalking;
     public bool interacted;
 
