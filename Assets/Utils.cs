@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Config;
 
 public static class Utils
 {
@@ -22,5 +23,10 @@ public static class Utils
         if (x > 0) return 1;
         else if (x < 0) return -1;
         else { return 0; }
+    }
+
+    public static bool isAxisActive(float axis)
+    {
+        return axis > CONTROL_DEADZONE || axis < -CONTROL_DEADZONE;
     }
 }

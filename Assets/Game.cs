@@ -21,7 +21,7 @@ public class Game : MonoBehaviour
     public List<Room> rooms;
     public List<Person> employees;
 
-    public Detective player;
+    public Detective detective;
 
     // Awake is called on initialisation, before the component becomes active
     void Awake()
