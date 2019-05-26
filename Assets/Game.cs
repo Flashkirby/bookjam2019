@@ -9,8 +9,7 @@ public class Game : MonoBehaviour
     public static Game S { get { if (game == null) { game = GameObject.FindGameObjectWithTag("GameController").GetComponent<Game>(); } return game; } }
 
     public List<GameObject> featureBodies;
-    public List<GameObject> featurePoolShortHair;
-    public List<GameObject> featurePoolLongHair;
+    public List<GameObject> featurePoolHair;
     public List<GameObject> featurePoolHat;
     public List<GameObject> featurePoolGlasses;
     public List<GameObject> featurePoolBadge;
@@ -72,7 +71,7 @@ public class Game : MonoBehaviour
             Debug.Log(features.Count);
             Feature debugFeature = features.First();
 
-            Clue debugClue = new Clue(ClueFactory.ClueTypes.Perfect, debugFeature);
+            Clue debugClue = new Clue(ClueFactory.ClueTypes.Unsure, debugFeature);
             Debug.Log(debugClue.ToFactBookString());
             factBook.addClue(debugClue.ToFactBookString());
 
@@ -167,8 +166,7 @@ public class Game : MonoBehaviour
     /// <returns> Refernece to the pool that the feature belongs to, or null</returns>
     public List<GameObject> GetPoolSharingFeature(Feature feature)
     {
-        if (featurePoolShortHair.Find(o => o.name == feature.name) != null) { return featurePoolShortHair; }
-        if (featurePoolLongHair.Find(o => o.name == feature.name) != null) { return featurePoolLongHair; }
+        if (featurePoolHair.Find(o => o.name == feature.name) != null) { return featurePoolHair; }
         if (featurePoolHat.Find(o => o.name == feature.name) != null) { return featurePoolHat; }
         if (featurePoolGlasses.Find(o => o.name == feature.name) != null) { return featurePoolGlasses; }
         return null;

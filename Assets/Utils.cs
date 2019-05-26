@@ -5,6 +5,8 @@ using static Config;
 
 public static class Utils
 {
+    static System.Random rnd = new System.Random();
+
     public static Vector3 SetX3(this Vector3 position, float x = 0)
     {
         position.x = x;
@@ -55,5 +57,10 @@ public static class Utils
     public static bool isAxisActive(float axis)
     {
         return axis > CONTROL_DEADZONE || axis < -CONTROL_DEADZONE;
+    }
+
+    public static T PickRandom<T>(this IList<T> source)
+    {
+        return source[rnd.Next(source.Count)];
     }
 }
