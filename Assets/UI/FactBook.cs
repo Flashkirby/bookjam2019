@@ -19,9 +19,9 @@ public class FactBook : MonoBehaviour
     {
         pageOne.text = "";
         pageTwo.text = "";
-        clueList.Add("Their name is John Smith.");
-        clueList.Add("They are wearing a red hat.");
-        clueList.Add("They are either on the 3rd or 4th floor.");
+        //clueList.Add("Their name is John Smith.");
+        //clueList.Add("They are wearing a red hat.");
+        //clueList.Add("They are either on the 3rd or 4th floor.");
         //clueList.Add("Their name is John Smith.");
         //clueList.Add("Their name is John Smith.");
         //clueList.Add("Their name is John Smith.");
@@ -70,7 +70,7 @@ public class FactBook : MonoBehaviour
 
     }
 
-    void addClue(string clueString)
+    public void addClue(string clueString)
     {
         clueList.Add(clueString);
     }

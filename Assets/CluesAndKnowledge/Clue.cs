@@ -18,19 +18,19 @@ public class Clue : Knowledge
         this.clueType = clueType;
         this.feature = feature;
 
-        switch (this.clueType)
-        {
-            case ClueTypes.Useless:
-                break;
-            case ClueTypes.Vague:
-                break;
-            case ClueTypes.Unsure:
-                break;
-            case ClueTypes.Perfect:
-                break;
-            default:
-                break;
-        }
+        //switch (this.clueType)
+        //{
+        //    case ClueTypes.Useless:
+        //        break;
+        //    case ClueTypes.Vague:
+        //        break;
+        //    case ClueTypes.Unsure:
+        //        break;
+        //    case ClueTypes.Perfect:
+        //        break;
+        //    default:
+        //        break;
+        //}
     }
 
 
@@ -39,29 +39,25 @@ public class Clue : Knowledge
         string baseString = "";
         if(clueType == ClueTypes.Useless) { return "USELESS"; };
 
-        if(clueType == ClueTypes.Vague)
-        {
-            baseString = "They are ";
-        }
-
         if (clueType == ClueTypes.Unsure)
         {
-            baseString = "They are either ";
+            baseString = "Either: ";
         }
 
-        if (clueType == ClueTypes.Perfect)
+        if (clueType == ClueTypes.Perfect || clueType == ClueTypes.Vague)
         {
-            baseString = "They are definitely ";
+            baseString = "Definitely: ";
         }
 
-        string featureVerb; //TODO:
-        string featureSubject; //TODO:
+        string featureSubject = feature.displayName;
+        baseString += featureSubject;
 
-        string endingString = ".";
+        string endingString = "";
+
         if (clueType == ClueTypes.Unsure)
         {
             Feature fakeFeature; //TODO:
-            endingString = " or PUTSOMETHING HERE.";
+            endingString = " or PUTSOMETHING HERE";
         }
 
         baseString += endingString;

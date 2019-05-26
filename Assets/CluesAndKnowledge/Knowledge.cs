@@ -29,11 +29,11 @@ public class Knowledge
     public List<Feature> getTrueOrnaments()
     {
         var trueFeatures = new List<Feature>();
-        foreach(var feature in trueFeatures)
+        foreach(var kvp in ornaments)
         {
-            if(ornaments[feature] == Logic.True)
+            if(kvp.Value == Logic.True)
             {
-                trueFeatures.Add(feature);
+                trueFeatures.Add(kvp.Key);
             }
         }
         return trueFeatures;

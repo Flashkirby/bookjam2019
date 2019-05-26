@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,9 +18,12 @@ public class Game : MonoBehaviour
     private Dictionary<Person.RankEnum, int> rankBadgeDict;
 
     public List<Room> rooms;
-    public List<Person> employees;
+    public List<Employee> employees;
+
+    public Employee target;
 
     public Detective detective;
+    public FactBook factBook;
 
     public SplashScreen splashScreen;
 
@@ -53,11 +57,24 @@ public class Game : MonoBehaviour
                 "(Press Space to start)\n\n";
 
             Debug.Log("Game start!");
-            splashScreen.ShowSplashScreen();
-            splashScreen.splashText.text = startString;
-            Game.S.detective.inMenu = true;
+            //splashScreen.ShowSplashScreen();
+            //splashScreen.splashText.text = startString;
+            //Game.S.detective.inMenu = true;
+            //isStartSplash = true;
             isGameOver = false;
-            isStartSplash = true;
+            
+
+            //Get Target
+            target = employees.First();
+
+            //TODO: Remove, debug for notebook
+            var features = target.features.getTrueOrnaments();
+            Debug.Log(features.Count);
+            Feature debugFeature = features.First();
+
+            Clue debugClue = new Clue(ClueFactory.ClueTypes.Perfect, debugFeature);
+            Debug.Log(debugClue.ToFactBookString());
+            factBook.addClue(debugClue.ToFactBookString());
 
             isGameStarted = true;
         }

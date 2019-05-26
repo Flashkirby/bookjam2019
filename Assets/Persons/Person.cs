@@ -60,7 +60,6 @@ public class Person : MonoBehaviour
 
     public void Start()
     {
-        Game.S.employees.Add(this);
     }
 
     // Update is called once per frame
