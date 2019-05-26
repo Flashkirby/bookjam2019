@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   person: {fileID: 0}
   spriteRenderer: {fileID: 5243173035866519676}
-  displayName: short hair
-  displayColour: white
+  displayName: glasses
+  displayColour: black
   verbProgressive: 
   verbPerfect: 
