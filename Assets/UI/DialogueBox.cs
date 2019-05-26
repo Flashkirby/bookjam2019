@@ -15,11 +15,11 @@ public class DialogueBox : MonoBehaviour
     void Start()
     {
         ClearDialogue();
-
-        dialogueQueue.Enqueue(new Dialogue("You", false, "Hello."));
-        dialogueQueue.Enqueue(new Dialogue("John Smithy", true, "This isn't the John Smith you're looking for."));
-        dialogueQueue.Enqueue(new Dialogue("You", false, "Oh, okay then."));
-        dialogueQueue.Enqueue(new Dialogue("John Smithy", true, "I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now."));
+        CloseDialogue();
+        //dialogueQueue.Enqueue(new Dialogue("You", false, "Hello."));
+        //dialogueQueue.Enqueue(new Dialogue("John Smithy", true, "This isn't the John Smith you're looking for."));
+        //dialogueQueue.Enqueue(new Dialogue("You", false, "Oh, okay then."));
+        //dialogueQueue.Enqueue(new Dialogue("John Smithy", true, "I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now."));
     }
 
     // Update is called once per frame
