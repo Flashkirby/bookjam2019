@@ -88,9 +88,9 @@ public class Person : MonoBehaviour
     {
         Vector3 scale = spriteOrigin.localScale;
         if (direction > 0)
-        { scale.z = 1; }
+        { scale.x = 1; }
         else if (direction < 0)
-        { scale.z = -1; }
+        { scale.x = -1; }
         spriteOrigin.localScale = scale;
     }
 
