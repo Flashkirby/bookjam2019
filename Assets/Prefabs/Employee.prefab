@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 6316476477470749350}
   - component: {fileID: 4186340501901331930}
   - component: {fileID: 8421161364513969560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Employee
   m_TagString: Employee
   m_Icon: {fileID: 2800000, guid: d756bdbbd9c4d434a832b8a4ae58d0b1, type: 3}
