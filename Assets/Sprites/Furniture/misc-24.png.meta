@@ -7,6 +7,8 @@ TextureImporter:
     21300004: misc-24_2
     21300006: misc-24_3
     21300008: misc-24_4
+    21300010: misc-24_5
+    21300012: misc-24_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -103,7 +105,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51fb8ca0e50e496488678cf4e8eaa216
+      spriteID: 257f917cf672efb4c96a3483a44b3f33
       vertices: []
       indices: 
       edges: []
@@ -123,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eeb547be51df081499033faa11ba094c
+      spriteID: c8f166dcaab57ac4aa80a36cebd8f336
       vertices: []
       indices: 
       edges: []
@@ -143,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75959c1b2142a4547b7960990ec0685c
+      spriteID: e96fcf969501a364d9da314aec95a107
       vertices: []
       indices: 
       edges: []
@@ -163,7 +165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45456ed36f1cd864ba9756301f208742
+      spriteID: 7686a61423d67344fbdd3a9229678f09
       vertices: []
       indices: 
       edges: []
@@ -183,7 +185,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ebe381af5a800a4aa1c15b6a46fa2db
+      spriteID: cdfc7226ac924bd4792a42f6d43dcd0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misc-24_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 168
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba0c691bd5914640a04159a3df61275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: misc-24_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 168
+        width: 24
+        height: 24
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585a3349799e0c24289f722116323ac6
       vertices: []
       indices: 
       edges: []
