@@ -302,7 +302,7 @@ MonoBehaviour:
   numberOfManagers: 1
   numberOfExecs: 0
   numberOfCEOs: 0
-  assignedColor: {r: 1, g: 1, b: 1, a: 0}
+  assignedColor: {r: 1, g: 1, b: 1, a: 1}
   displayName: UNSET ROOM
 --- !u!1 &1832141339133990065
 GameObject:
