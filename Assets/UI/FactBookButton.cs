@@ -1,26 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FactBookButton : MonoBehaviour
 {
-
-    public GameObject factBook;
-
-    // Start is called before the first frame update
-    void Start()
+    public void ToggleFactBook()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OpenFactBook()
-    {
-        factBook.SetActive(true);
-        Game.S.detective.inMenu = true;
+        Game.S.factBook.ToggleFactBook();
     }
 }

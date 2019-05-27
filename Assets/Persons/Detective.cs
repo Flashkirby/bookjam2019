@@ -30,6 +30,25 @@ public class Detective : Person
         controlX = Input.GetAxisRaw("Horizontal");
         controlY = Input.GetAxisRaw("Vertical");
 
+
+        //Handle Factbook Interaction
+        if (Game.S.factBook.activeSelf)
+        {
+            //If book is open
+            if (Input.GetButtonDown("OpenJournal"))
+            {
+                Game.S.factBook.CloseFactBook();
+            }
+        }
+        else
+        {
+            //If book is closed
+            if (Input.GetButtonDown("OpenJournal"))
+            {
+                Game.S.factBook.OpenFactBook();
+            }
+        }
+
         //Handle Interaction
         Interact();
 
@@ -84,7 +103,7 @@ public class Detective : Person
                 }
 
                 // Past the minimum threshold, start the slider
-                if(interactHoldTime > CONTROL_MIN_HOLD)
+                if (interactHoldTime > CONTROL_MIN_HOLD)
                 {
                     if (sceneActionIcon != null)
                     { sceneActionIcon.sliderShow = (interactHoldTime - CONTROL_MIN_HOLD) / CONTROL_MAX_HOLD; }
@@ -181,11 +200,12 @@ public class Detective : Person
             employee.FaceDirection((int)(transform.position.x - employee.transform.position.x));
 
             //TODO: How to compare?
-            if(employee == Game.S.target)
+            if (employee == Game.S.target)
             {
                 DialogueFactory.GenerateCorrectIdentifyDialogue(employee, this);
                 Game.S.GameWin();
-            } else
+            }
+            else
             {
                 DialogueFactory.GenerateIncorrectIdentifyDialogue(employee, this);
                 Game.S.detective.anxiety += ANXIETY_WRONG_IDENTIFY_INCREASE;

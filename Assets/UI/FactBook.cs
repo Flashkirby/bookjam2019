@@ -13,54 +13,44 @@ public class FactBook : MonoBehaviour
 
     public List<string> clueList;
 
+    public bool activeSelf { get { return gameObject.activeSelf; } }
+
 
     // Start is called before the first frame update
     void Start()
     {
         pageOne.text = "";
         pageTwo.text = "";
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("They are wearing a red hat.");
-        //clueList.Add("They are either on the 3rd or 4th floor.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
-        //clueList.Add("Their name is John Smith.");
     }
 
     // Update is called once per frame
     void Update()
     {
-        CloseFactBook();
         printCluesToFactBook();
     }
 
-    void CloseFactBook()
+    public void OpenFactBook()
     {
-        if (Input.GetButtonDown("Fire1") || Utils.isAxisActive(Input.GetAxisRaw("Horizontal")))
+        gameObject.SetActive(true);
+        Game.S.detective.inMenu = true;
+    }
+
+    public void CloseFactBook()
+    {
+        gameObject.SetActive(false);
+        Game.S.detective.inMenu = false;
+    }
+
+    public void ToggleFactBook()
+    {
+        if (activeSelf)
         {
-            gameObject.SetActive(false);
-            Game.S.detective.inMenu = false;
-        };
+           CloseFactBook();
+        }
+        else
+        {
+           OpenFactBook();
+        }
     }
 
     int pageLines(Text page)
