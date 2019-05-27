@@ -53,29 +53,23 @@ public class Detective : Person
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                Debug.Log("Interaction!");
-            }
-        } else
-        {
-            if (Game.S.isGameOver)
-            {
-                if (Input.GetButtonDown("Fire1"))
-                {
-                    Game.S.HandleRestart();
-                }
-            }
-            if (Game.S.isStartSplash)
-            {
-                if (Input.GetButtonDown("Fire1"))
-                {
-                    Game.S.HandleStartSplash();
-                }
+                InteractWithEmployee();
             }
         }
+    }
 
+    private void InteractWithEmployee()
+    {
+        if (interactHighlighter == null) { Debug.LogError("Have you attached the highlighter to this? "); }
+        else
+        {
+            Person p = interactHighlighter.highlightedPerson;
+            if (p == null) { return; }
+            if (!(p is Employee)) { return; }
+            Employee employee = p as Employee;
 
-
-
+            employee.transform.position = employee.transform.position.Sum3(0f, 2f, 0f);
+        }
     }
 
     void UpdateAnxiety()

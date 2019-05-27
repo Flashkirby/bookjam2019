@@ -85,7 +85,6 @@ public class Employee : Person
         GameObject pfbBadge = Game.S.getPrefabBadgeFromRank(rank);
         Feature badge = FeatureFactory.InstantiateFeature(this, pfbBadge, yPixelOffset);
         badge.FeatureColour = Workplace.assignedColor;
-        Debug.Log("add badge " + badge.displayColour);
     }
 
 }
