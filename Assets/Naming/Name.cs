@@ -22,6 +22,8 @@ public class Name
     {
         "John Smith",
         "Jane Smith",
+        "Haydn Plehnzeit",
+        "Hardy Twofin",
     };
 
     List<string> firstNames = new List<string>
