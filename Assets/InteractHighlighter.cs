@@ -13,6 +13,7 @@ public class InteractHighlighter : MonoBehaviour
     {
         if (people.Count > 0)
         {
+           
             people.Sort((left, right) => ((int)(
                 (Mathf.Abs(transform.parent.position.x - left.transform.position.x) -
                 Mathf.Abs(transform.parent.position.x - right.transform.position.x))
@@ -37,7 +38,10 @@ public class InteractHighlighter : MonoBehaviour
     {
         if (other.GetComponent<Person>() != null)
         {
-            people.Add(other.GetComponent<Person>());
+            if (!other.GetComponent<Person>().interacted)
+            {
+                people.Add(other.GetComponent<Person>());
+            }
             UpdateHighlight();
         }
     }
