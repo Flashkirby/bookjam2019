@@ -6,11 +6,13 @@ using static ClueFactory;
 
 public static class DialogueFactory
 {
+
+    static UselessClueGenerator uselessClueGenerator = new UselessClueGenerator();
     public static void StartDialogue(List<IClue> clues, Person speaker, Person listener)
     {
         string speakerName = speaker.displayName;
         bool isSpeakerRight = speaker.transform.position.x > listener.transform.position.x;
-        foreach(var clue in clues)
+        foreach (var clue in clues)
         {
             var d = new Dialogue(speakerName, isSpeakerRight, GenerateDialogueFrom(clue));
             Debug.Log("Dialogue: " + d.dialogueText);
@@ -20,7 +22,7 @@ public static class DialogueFactory
 
     private static string GenerateDialogueFrom(IClue clue)
     {
-        if(clue is ClueFeature)
+        if (clue is ClueFeature)
         {
             return generateFeatureDialogue((ClueFeature)clue);
         }
@@ -41,47 +43,65 @@ public static class DialogueFactory
         string speakerName = speaker.displayName;
         bool isSpeakerRight = speaker.transform.position.x > listener.transform.position.x;
 
-        string correctIdentifyString = "Oh hi there! Nice to see you again!";
+        string correctIdentifyString = correctIdentifyStringList.PickRandom();
         var d = new Dialogue(speakerName, isSpeakerRight, correctIdentifyString);
         Debug.Log("Dialogue: " + d.dialogueText);
         Game.S.dialogueQueue.Enqueue(d);
     }
+    static List<string> correctIdentifyStringList = new List<string> {
+        "Oh hi there! Nice to see you again!",
+        "Yup, that's me, hi there!",
+    };
+
 
     public static void GenerateIncorrectIdentifyDialogue(Person speaker, Person listener)
     {
         string speakerName = speaker.displayName;
         bool isSpeakerRight = speaker.transform.position.x > listener.transform.position.x;
 
-        string correctIdentifyString = "What? What are you talking about?";
-        var d = new Dialogue(speakerName, isSpeakerRight, correctIdentifyString);
+        string incorrectIdentifyString = incorrectIdentifyStringList.PickRandom();
+        var d = new Dialogue(speakerName, isSpeakerRight, incorrectIdentifyString);
         Debug.Log("Dialogue: " + d.dialogueText);
         Game.S.dialogueQueue.Enqueue(d);
     }
+    static List<string> incorrectIdentifyStringList = new List<string> {
+        "What? What are you talking about?",
+        "Who is that? I've never heard of them!",
+        "I'm not them! Wait, who are you!?",
+        "Do you just like getting people's names wrong?",
+        "Huh? Go away."
+    };
+
 
     public static void GenerateTalkingToTargetDialogue(Person speaker, Person listener)
     {
         string speakerName = speaker.displayName;
         bool isSpeakerRight = speaker.transform.position.x > listener.transform.position.x;
 
-        string correctIdentifyString = "Of course I know what they look like, they're me!";
-        var d = new Dialogue(speakerName, isSpeakerRight, correctIdentifyString);
+        string talkToTargetString = talkToTargetStringList.PickRandom();
+        var d = new Dialogue(speakerName, isSpeakerRight, talkToTargetString);
         Debug.Log("Dialogue: " + d.dialogueText);
         Game.S.dialogueQueue.Enqueue(d);
     }
+    static List<string> talkToTargetStringList = new List<string> {
+        "Of course I know what they look like, they're me!",
+        "They look like me! Because that is me!",
+        "Don't you remember? That's me!"
+    };
 
     public static string generateFeatureDialogue(ClueFeature clue)
     {
         string baseString = "";
-        if (clue.clueType == ClueTypes.Useless) { return "Sorry, I don't know what that person looks like."; }
-        if (clue.clueType == ClueTypes.Unsure) { baseString = "I think they "; }
-        if (clue.clueType == ClueTypes.Partial) { baseString = "As far as I know, they "; }
-        if (clue.clueType == ClueTypes.Complete) { baseString = "I'm sure they "; }
+        if (clue.clueType == ClueTypes.Useless) { return uselessClueGenerator.getUselessClueString(); }
+        if (clue.clueType == ClueTypes.Unsure) { baseString = featureDialogueUnsureStarters.PickRandom() + " "; }
+        if (clue.clueType == ClueTypes.Partial) { baseString = featureDialoguePartialStarters.PickRandom() + " "; }
+        if (clue.clueType == ClueTypes.Complete) { baseString = featureDialogueCompleteStarters.PickRandom() + " "; }
 
         string connectingString = "";
         connectingString += clue.sortedFeatures[0].linkingVerb != "" ? clue.sortedFeatures[0].linkingVerb + " " : "";
         connectingString += clue.sortedFeatures[0].adjective != "" ? clue.sortedFeatures[0].adjective + " " : "";
         baseString += connectingString;
-       
+
         string featureString = "";
 
         string endingString = ".";
@@ -97,7 +117,7 @@ public static class DialogueFactory
             endingConnectingString += clue.sortedFeatures[1].adjective != "" ? clue.sortedFeatures[1].adjective + " " : ""; ;
 
             endingString = " or " +
-                endingConnectingString + 
+                endingConnectingString +
                 clue.sortedFeatures[1].displayColour +
                 (clue.sortedFeatures[1].displayColour == "" ? "" : " ") +
                 clue.sortedFeatures[1].displayName +
@@ -117,15 +137,29 @@ public static class DialogueFactory
 
         return baseString;
     }
+    static List<string> featureDialogueUnsureStarters = new List<string>{
+        "I think they",
+        "Uhh, I think they",
+        "I'm not sure, either they",
+    };
 
+    static List<string> featureDialoguePartialStarters = new List<string>{
+        "As far as I know, they",
+        "Last I saw them, they",
+    };
+
+    static List<string> featureDialogueCompleteStarters = new List<string>{
+        "I'm sure they",
+        "They definitely"
+    };
 
     public static string generateFloorDialogue(ClueFloor clue)
     {
         string baseString = "";
-        if (clue.clueType == ClueTypes.Useless) { return "Sorry, I don't know where that person is."; }
-        if (clue.clueType == ClueTypes.Unsure) { baseString = "They're either on the "; }
-        if (clue.clueType == ClueTypes.Partial) { baseString = "As far as I know, they're on the "; }
-        if (clue.clueType == ClueTypes.Complete) { baseString = "I'm certain they're on the "; }
+        if (clue.clueType == ClueTypes.Useless) { return uselessClueGenerator.getUselessClueString(); }
+        if (clue.clueType == ClueTypes.Unsure) { baseString = floorDialogueUnsureStarters.PickRandom() + " "; }
+        if (clue.clueType == ClueTypes.Partial) { baseString = floorDialoguePartialStarters.PickRandom() + " "; }
+        if (clue.clueType == ClueTypes.Complete) { baseString = floorDialogueCompleteStarters.PickRandom() + " "; }
 
         string featureString = "";
         string endingString = ".";
@@ -144,14 +178,29 @@ public static class DialogueFactory
 
         return baseString;
     }
+    static List<string> floorDialogueUnsureStarters = new List<string>{
+        "They're either on the",
+        "Floor? They may be on the"
+    };
+
+    static List<string> floorDialoguePartialStarters = new List<string>{
+        "As far as I know, they're on the",
+        "Unsure, maybe they're on the"
+    };
+
+    static List<string> floorDialogueCompleteStarters = new List<string>{
+        "I'm certain they're on the",
+        "I just saw them on the"
+    };
+
 
     public static string generateRoomDialogue(ClueRoom clue)
     {
         string baseString = "";
-        if (clue.clueType == ClueTypes.Useless) { return "Sorry, I don't where that person works."; }
-        if (clue.clueType == ClueTypes.Unsure) { baseString = "The might be in the "; }
-        if (clue.clueType == ClueTypes.Partial) { baseString = "I think I last saw them in the "; }
-        if (clue.clueType == ClueTypes.Complete) { baseString = "Oh yeah! They were just in the "; }
+        if (clue.clueType == ClueTypes.Useless) { return uselessClueGenerator.getUselessClueString(); }
+        if (clue.clueType == ClueTypes.Unsure) { baseString = roomDialogueUnsureStarters.PickRandom() + " "; }
+        if (clue.clueType == ClueTypes.Partial) { baseString = roomDialoguePartialStarters.PickRandom() + " "; }
+        if (clue.clueType == ClueTypes.Complete) { baseString = roomDialogueCompleteStarters.PickRandom() + " "; }
 
         string featureString = "";
         string endingString = ".";
@@ -170,4 +219,19 @@ public static class DialogueFactory
 
         return baseString;
     }
+
+    static List<string> roomDialogueUnsureStarters = new List<string>{
+        "They might be in the",
+        "I'm not sure, I think they're either in the"
+    };
+
+    static List<string> roomDialoguePartialStarters = new List<string>{
+        "I think I last saw them in the",
+        "They could be in the"
+    };
+
+    static List<string> roomDialogueCompleteStarters = new List<string>{
+        "Oh yeah! They were just in the",
+        "They're in the"
+    };
 }

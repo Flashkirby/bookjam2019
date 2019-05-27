@@ -44,7 +44,10 @@ public class Feature : MonoBehaviour
 
         if (person.interacted)
         {
-            spriteRenderer.color = originalFeatureColour * 0.5f;
+            Color tmpCol = originalFeatureColour * 0.45f;
+            tmpCol.a = 1f;
+
+            spriteRenderer.color = tmpCol;
         }
 
 
