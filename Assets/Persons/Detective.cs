@@ -172,7 +172,15 @@ public class Detective : Person
             employee.mingleTime = -MINGLE_WAIT_MAX;
             employee.FaceDirection((int)(transform.position.x - employee.transform.position.x));
 
-            if(employee == Game.S.target)
+            //Set that we've interacted with them
+            employee.interacted = true;
+            employee.transform.position = employee.transform.position.Sum3(0, 0, 1f);
+            interactHighlighter.people.Remove(p);
+            interactHighlighter.highlightedPerson = null;
+            interactHighlighter.UpdateHighlight();
+
+            //Woops we're talking with our target
+            if (employee == Game.S.target)
             {
                 DialogueFactory.GenerateTalkingToTargetDialogue(employee, this);
                 Game.S.triedToQuestionTarget = true;
@@ -196,6 +204,8 @@ public class Detective : Person
                 Game.S.detective.anxiety += ANXIETY_DIALOGUE_INCREASE;
             }
 
+            employee.GetComponent<Rigidbody2D>().velocity += new Vector2(0, 3f);
+
         }
     }
 
@@ -213,18 +223,28 @@ public class Detective : Person
             employee.mingleTime = -MINGLE_WAIT_MAX;
             employee.FaceDirection((int)(transform.position.x - employee.transform.position.x));
 
+            
             if (employee == Game.S.target)
             {
+                //We got it right!
                 DialogueFactory.GenerateCorrectIdentifyDialogue(employee, this);
                 Game.S.SetGameWin();
             }
             else
             {
+                //Set that we've interacted with them
+                employee.interacted = true;
+                employee.transform.position = employee.transform.position.Sum3(0, 0, 1f);
+                interactHighlighter.people.Remove(p);
+                interactHighlighter.highlightedPerson = null;
+                interactHighlighter.UpdateHighlight();
+
+                //Woops, wrong
                 DialogueFactory.GenerateIncorrectIdentifyDialogue(employee, this);
                 Game.S.detective.anxiety += ANXIETY_WRONG_IDENTIFY_INCREASE;
             }
 
-            employee.transform.position = employee.transform.position.Sum3(0f, 1f, 0f);
+            employee.GetComponent<Rigidbody2D>().velocity += new Vector2(0, 3f);
 
             //DialogueFactory.StartDialogue(clues, employee, this);
         }

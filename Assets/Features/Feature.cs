@@ -41,8 +41,11 @@ public class Feature : MonoBehaviour
     public void Update()
     {
         spriteRenderer.color = originalFeatureColour;
-        // TODO: Highlight
-        // TODO: Lowlight (desaturate)
+
+        if (person.interacted)
+        {
+            spriteRenderer.color = originalFeatureColour * 0.5f;
+        }
 
 
     }
