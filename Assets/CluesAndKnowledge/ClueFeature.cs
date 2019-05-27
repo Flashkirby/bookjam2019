@@ -25,7 +25,6 @@ public class ClueFeature : IClue
             // Find the pool the object shares
             var samePool = Game.S.GetPoolSharingFeature(feature);
 
-            // Copy the pool TODO: Find out if this is necessary
             List<GameObject> samePoolCopy = new List<GameObject>();
             samePoolCopy.AddRange(samePool);
 

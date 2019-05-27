@@ -165,13 +165,14 @@ public class Game : MonoBehaviour
             //Get Target
             if (employees.Count == 0) Debug.LogError("No employees. This company is very flawed. ");
 
+            //Debug for nameGen
             //Name nameGen = new Name();
             //for (int i = 0; i < 100; i++)
             //{
             //    Debug.Log(nameGen.GenerateRandomName());
             //}
 
-            //TODO: Remove, debug for notebook
+            //Debug for notebook
             //for (int i = 0; i < 20; i++)
             //{
             //    var features = target.features.getTrueOrnaments();

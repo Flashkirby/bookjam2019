@@ -151,7 +151,7 @@ public class Person : MonoBehaviour
         spriteOrigin.localScale = scale;
     }
 
-    // TODO: move this to employee maybe
+    // move this to employee maybe
     public enum RankEnum
     {
         Employee,

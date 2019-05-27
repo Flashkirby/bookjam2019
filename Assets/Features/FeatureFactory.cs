@@ -115,7 +115,6 @@ public class FeatureFactory : MonoBehaviour
     {
         if (prefabFeature == null)
         {
-            // TODO: RANDOM HAIR
             List<GameObject> allHairs = Game.S.featurePoolHair;
 
             prefabFeature = allHairs[Random.Range(0, allHairs.Count)];
@@ -142,7 +141,6 @@ public class FeatureFactory : MonoBehaviour
     {
         if (prefabFeature == null)
         {
-            // TODO: RANDOM FACE
             List<GameObject> allFace = new List<GameObject>();
             allFace.AddRange(Game.S.featurePoolGlasses);
 
