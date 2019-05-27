@@ -15361,6 +15361,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 8440221009955848130, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6027753949364418665, guid: d03f1f0fab755124e8a895a529a16821,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -15465,10 +15470,41 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8440221009955848130, guid: d03f1f0fab755124e8a895a529a16821,
+    - target: {fileID: 2210500919064618729, guid: d03f1f0fab755124e8a895a529a16821,
         type: 3}
-      propertyPath: m_PlayOnAwake
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210500919522150931, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.12459949
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210500919522150931, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.44892454
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210500919522150931, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210500919883512248, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601852150319863708, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_Text
+      value: 'A and D to walk
+
+        W and S to operate lifts
+
+        Space to interact, Hold to identify
+
+        Press F to open/close your Fact Book'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03f1f0fab755124e8a895a529a16821, type: 3}
@@ -18097,6 +18133,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.66571736
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072392112389813976, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072392112389813976, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 13.002766
+      objectReference: {fileID: 0}
+    - target: {fileID: 9072392112389813976, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
