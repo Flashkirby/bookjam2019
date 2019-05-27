@@ -19,50 +19,25 @@ public class DialogueBox : MonoBehaviour
         //dialogueQueue.Enqueue(new Dialogue("John Smithy", true, "I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now.I am going to fill up this dialogue box with text now."));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenDialogue()
     {
-        ProcessDialogue();
-    }
-
-    void FixedUpdate()
-    {
-    }
-
-
-
-    void ProcessDialogue()
-    {
-        if (Game.S.dialogueQueue.Count != 0)
+        ClearDialogue();
+        Dialogue topDialogue = Game.S.dialogueQueue.Peek();
+        if (topDialogue.isSpeakerRight)
         {
-            Dialogue topDialogue = Game.S.dialogueQueue.Peek();
-
-            ClearDialogue();
-
-            if (topDialogue.isSpeakerRight)
-            {
-                nameRight.text = topDialogue.speaker;
-            }
-            else
-            {
-                nameLeft.text = topDialogue.speaker;
-            }
-
-            dialogueText.text = topDialogue.dialogueText;
-            OpenDialogue();
+            nameRight.text = topDialogue.speaker;
         }
         else
         {
-            CloseDialogue();
+            nameLeft.text = topDialogue.speaker;
         }
-    }
 
-    void OpenDialogue()
-    {
+        dialogueText.text = topDialogue.dialogueText;
+
         gameObject.SetActive(true);
     }
 
-    void CloseDialogue()
+    public void CloseDialogue()
     {
         gameObject.SetActive(false);
     }

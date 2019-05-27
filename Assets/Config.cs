@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 public static class Config
 {
+    public const float INTERACT_COOLDOWN = 0.2f;
+    public const float INTERACT_IDENTIFY_DELAY = 1f;
+
     public const float MAX_WALK_SPEED = 10f;
     public const float MAX_EMPLOYEE_WALK_SPEED = 1f;
 

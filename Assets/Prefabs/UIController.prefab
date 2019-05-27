@@ -1154,7 +1154,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7776359222861333732}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1162,13 +1162,13 @@ RectTransform:
   - {fileID: 7776359222849785514}
   - {fileID: 7776359223719438479}
   - {fileID: 7776359223554367900}
-  m_Father: {fileID: 7776359224096686305}
-  m_RootOrder: 3
+  m_Father: {fileID: 7776359223201006221}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -103.91}
-  m_SizeDelta: {x: 740, y: 187.82}
+  m_AnchoredPosition: {x: 0, y: -150}
+  m_SizeDelta: {x: 740, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7776359222861333728
 CanvasRenderer:
@@ -1191,15 +1191,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.26980242, g: 0.295961, b: 0.4056604, a: 1}
+  m_Color: {r: 0.26980242, g: 0.295961, b: 0.4056604, a: 0.79607844}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1332,6 +1332,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4939196045798120967}
+  - {fileID: 7776359222861333733}
   m_Father: {fileID: 2595492495050799406}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1575,7 +1576,7 @@ RectTransform:
   m_Children:
   - {fileID: 7776359224070699873}
   m_Father: {fileID: 7776359224096686305}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2059,7 +2060,6 @@ RectTransform:
   - {fileID: 7776359223813809214}
   - {fileID: 7776359223237945167}
   - {fileID: 4169284204464137104}
-  - {fileID: 7776359222861333733}
   - {fileID: 7776359223455078300}
   m_Father: {fileID: 2595492495050799406}
   m_RootOrder: 0

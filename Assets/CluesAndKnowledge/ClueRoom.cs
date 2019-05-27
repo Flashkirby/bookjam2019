@@ -39,32 +39,6 @@ public class ClueRoom : IClue
         }
     }
 
-    public string generateDialogue()
-    {
-        string baseString = "";
-        if (clueType == ClueTypes.Useless) { return "Sorry, I don't know where that person is."; }
-        if (clueType == ClueTypes.Unsure) { baseString = "Unsure: "; }
-        if (clueType == ClueTypes.Partial) { baseString = "Partial Clue: "; }
-        if (clueType == ClueTypes.Complete) { baseString = "Complete Clue: "; }
-
-        string featureString = "";
-        string endingString = "";
-        if (clueType == ClueTypes.Unsure)
-        {
-            featureString += sortedRooms[0].displayName;
-            endingString = " or " + sortedRooms[1].displayName;
-        }
-        else if (clueType == ClueTypes.Partial || clueType == ClueTypes.Complete)
-        {
-            featureString += sortedRooms[0].displayName;
-        }
-
-        baseString += featureString;
-        baseString += endingString;
-
-        return baseString;
-    }
-
     public string ToFactBookString()
     {
         string baseString = "";

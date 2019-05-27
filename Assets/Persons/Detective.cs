@@ -9,8 +9,11 @@ public class Detective : Person
     public bool inMenu;
 
     public float anxiety;
+    public float talkCooldown;
 
     public InteractHighlighter interactHighlighter;
+
+    public bool PreventInteract { get { return inMenu || talkCooldown > 0; } }
 
     // Start is called before the first frame update, after being enabled
     public new void Start()
@@ -28,6 +31,9 @@ public class Detective : Person
 
         //Handle Interaction
         Interact();
+
+        // handle cooldown after talking
+        if (talkCooldown > 0) talkCooldown -= Time.deltaTime;
     }
 
     // FixedUpdate is called once per physics step
@@ -51,7 +57,7 @@ public class Detective : Person
     {
         if (!inMenu)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && !PreventInteract)
             {
                 InteractWithEmployee();
             }
@@ -68,7 +74,13 @@ public class Detective : Person
             if (!(p is Employee)) { return; }
             Employee employee = p as Employee;
 
-            employee.transform.position = employee.transform.position.Sum3(0f, 2f, 0f);
+            // HMMM IS A CLUE
+            List<IClue> clues = new List<IClue>();
+            clues.Add(ClueFactory.GenerateRandomClueFromEmployee(employee));
+            foreach(var clue in clues)
+            { Game.S.factBook.addClue(clue.ToFactBookString()); }
+
+            DialogueFactory.StartDialogue(clues, employee, this);
         }
     }
 

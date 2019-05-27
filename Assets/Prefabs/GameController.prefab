@@ -244,6 +244,7 @@ MonoBehaviour:
   building: {fileID: 0}
   employees: []
   target: {fileID: 0}
+  sceneDialogueBox: {fileID: 2210500917855132011}
   detective: {fileID: 0}
   factBook: {fileID: 1661103334440714649}
   splashScreen: {fileID: 2210500919522150932}
@@ -330,6 +331,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8450559796441357705}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2210500917855132011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7776359222861333730, guid: cc5c5ec8a3a92ff42924cca114d88864,
+    type: 3}
+  m_PrefabInstance: {fileID: 8450559796441357705}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7760533a885c10e48be91b8a5e0b28ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2210500919522150932 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7776359223455078301, guid: cc5c5ec8a3a92ff42924cca114d88864,

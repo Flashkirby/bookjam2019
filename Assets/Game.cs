@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static Config;
 
 public class Game : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Game : MonoBehaviour
     public Employee target;
 
     public Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
+    public DialogueBox sceneDialogueBox;
 
     public Detective detective;
     public FactBook factBook;
@@ -110,25 +112,25 @@ public class Game : MonoBehaviour
             target = employees.PickRandom();
 
             //TODO: Remove, debug for notebook
-            for (int i = 0; i < 20; i++)
-            {
-                var features = target.features.getTrueOrnaments();
-                Feature debugFeature = features.PickRandom();
+            //for (int i = 0; i < 20; i++)
+            //{
+            //    var features = target.features.getTrueOrnaments();
+            //    Feature debugFeature = features.PickRandom();
 
-                Room debugRoom = target.CurrentLocation;
+            //    Room debugRoom = target.CurrentLocation;
 
-                Floor debugFloor = target.CurrentLocation.floor;
+            //    Floor debugFloor = target.CurrentLocation.floor;
 
-                var clueTypeArray = Enum.GetValues(typeof(ClueFactory.ClueTypes));
-                ClueFactory.ClueTypes randomClueType = (ClueFactory.ClueTypes)clueTypeArray.GetValue(Utils.rnd.Next(clueTypeArray.Length));
+            //    var clueTypeArray = Enum.GetValues(typeof(ClueFactory.ClueTypes));
+            //    ClueFactory.ClueTypes randomClueType = (ClueFactory.ClueTypes)clueTypeArray.GetValue(Utils.rnd.Next(clueTypeArray.Length));
 
-                IClue debugClueFeature = new ClueFeature(randomClueType, debugFeature);
-                factBook.addClue(debugClueFeature.ToFactBookString());
-                IClue debugClueRoom = new ClueRoom(randomClueType, debugRoom);
-                factBook.addClue(debugClueRoom.ToFactBookString());
-                IClue debugClueFloor = new ClueFloor(randomClueType, debugFloor);
-                factBook.addClue(debugClueFloor.ToFactBookString());
-            }
+            //    IClue debugClueFeature = new ClueFeature(randomClueType, debugFeature);
+            //    factBook.addClue(debugClueFeature.ToFactBookString());
+            //    IClue debugClueRoom = new ClueRoom(randomClueType, debugRoom);
+            //    factBook.addClue(debugClueRoom.ToFactBookString());
+            //    IClue debugClueFloor = new ClueFloor(randomClueType, debugFloor);
+            //    factBook.addClue(debugClueFloor.ToFactBookString());
+            //}
 
             isGameStarted = true;
         }
@@ -136,16 +138,22 @@ public class Game : MonoBehaviour
 
     private void HandleDialogue()
     {
+        if (sceneDialogueBox == null) { Debug.LogWarning("No dialogue box linked"); return; }
+
         if (dialogueQueue.Count != 0)
         {
             detective.inMenu = true;
-        }
-        if (Input.GetButtonDown("Fire1"))
-        {
-            dialogueQueue.Dequeue();
-            if (dialogueQueue.Count == 0)
+            sceneDialogueBox.OpenDialogue();
+
+            if (Input.GetButtonDown("Fire1"))
             {
-                detective.inMenu = false;
+                dialogueQueue.Dequeue();
+                if (dialogueQueue.Count == 0)
+                {
+                    detective.inMenu = false;
+                    detective.talkCooldown = INTERACT_COOLDOWN;
+                    sceneDialogueBox.CloseDialogue();
+                }
             }
         }
     }
@@ -240,6 +248,7 @@ public class Game : MonoBehaviour
         if (featurePoolHair.Find(o => o.name == feature.name) != null) { return featurePoolHair; }
         if (featurePoolHat.Find(o => o.name == feature.name) != null) { return featurePoolHat; }
         if (featurePoolGlasses.Find(o => o.name == feature.name) != null) { return featurePoolGlasses; }
+        // TOD: featurePoolBadge
         return null;
     }
 
