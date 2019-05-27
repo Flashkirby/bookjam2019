@@ -165,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 1832141338328234973}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 1.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1832141338764399215}
   m_RootOrder: 1
@@ -212,7 +212,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 8, y: 1}
+  m_Size: {x: 12, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -236,7 +236,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2, y: 1}
-    newSize: {x: 8, y: 1}
+    newSize: {x: 12, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -278,6 +278,7 @@ Transform:
   - {fileID: 821720089096757564}
   - {fileID: 8879631843749570441}
   - {fileID: 2448991935581100338}
+  - {fileID: 5286949750543330192}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -331,7 +332,7 @@ Transform:
   m_GameObject: {fileID: 1832141339133990065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 1}
-  m_LocalScale: {x: 1.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1832141338764399215}
   m_RootOrder: 0
@@ -373,7 +374,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: b5f369313f8b0bc4ab0178fe6f9fb356, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca0c6f08bfe778b4d8acb89526536c8e, type: 3}
   m_Color: {r: 0.3207547, g: 0.26174796, b: 0.26174796, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -411,7 +412,7 @@ Transform:
   m_GameObject: {fileID: 1832141339708867693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 4.5, z: 0}
-  m_LocalScale: {x: 1.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1832141338764399215}
   m_RootOrder: 2
@@ -458,7 +459,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 8, y: 1}
+  m_Size: {x: 12, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -482,7 +483,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2, y: 1}
-    newSize: {x: 8, y: 1}
+    newSize: {x: 12, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -596,6 +597,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.875}
   m_EdgeRadius: 0
+--- !u!1 &2002430238081432312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5286949750543330192}
+  m_Layer: 0
+  m_Name: Furniture
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5286949750543330192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2002430238081432312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1832141338764399215}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2638618421096481746
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,21 +916,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1832141338764399215}
     m_Modifications:
-    - target: {fileID: 7069969523611795416, guid: dd7962dbe4a9a2244a8cf78d124c1a32,
-        type: 3}
-      propertyPath: m_Name
-      value: roomHider
-      objectReference: {fileID: 0}
-    - target: {fileID: 7069969523611795416, guid: dd7962dbe4a9a2244a8cf78d124c1a32,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7069969523611795416, guid: dd7962dbe4a9a2244a8cf78d124c1a32,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 536165261947502341, guid: dd7962dbe4a9a2244a8cf78d124c1a32,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -954,6 +970,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069969523611795416, guid: dd7962dbe4a9a2244a8cf78d124c1a32,
+        type: 3}
+      propertyPath: m_Name
+      value: roomHider
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069969523611795416, guid: dd7962dbe4a9a2244a8cf78d124c1a32,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069969523611795416, guid: dd7962dbe4a9a2244a8cf78d124c1a32,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 415877892727638242, guid: dd7962dbe4a9a2244a8cf78d124c1a32,
         type: 3}
