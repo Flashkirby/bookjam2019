@@ -74,6 +74,10 @@ public class Detective : Person
             if (!(p is Employee)) { return; }
             Employee employee = p as Employee;
 
+            // Stop and look at listener
+            employee.mingleTime = -MINGLE_WAIT_MAX;
+            employee.FaceDirection((int)(transform.position.x - employee.transform.position.x));
+
             // HMMM IS A CLUE
             List<IClue> clues = new List<IClue>();
             clues.Add(ClueFactory.GenerateRandomClueFromEmployee(employee));
