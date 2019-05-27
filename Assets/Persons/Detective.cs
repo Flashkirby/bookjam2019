@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using static Config;
 
 public class Detective : Person
 {
@@ -48,6 +45,10 @@ public class Detective : Person
             else
             { StopWalk(); }
         }
+        else
+        {
+            StopWalk();
+        }
 
         UpdateAnxiety();
 
@@ -77,7 +78,7 @@ public class Detective : Person
             // HMMM IS A CLUE
             List<IClue> clues = new List<IClue>();
             clues.Add(ClueFactory.GenerateRandomClueFromEmployee(employee));
-            foreach(var clue in clues)
+            foreach (var clue in clues)
             { Game.S.factBook.addClue(clue.ToFactBookString()); }
 
             DialogueFactory.StartDialogue(clues, employee, this);
@@ -91,7 +92,7 @@ public class Detective : Person
             //anxiety += (5.083f * Time.fixedDeltaTime) / 6;
             anxiety += (0.0083f * Time.fixedDeltaTime) / 6;
         }
-        if(anxiety >= 1)
+        if (anxiety >= 1)
         {
             Game.S.GameOver();
         }
