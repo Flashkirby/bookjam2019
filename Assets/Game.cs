@@ -162,6 +162,7 @@ public class Game : MonoBehaviour
         if (dialogueQueue.Count != 0)
         {
             detective.inMenu = true;
+            detective.talkCooldown = INTERACT_COOLDOWN;
             sceneDialogueBox.OpenDialogue();
 
             if (Input.GetButtonDown("Fire1"))
@@ -170,7 +171,6 @@ public class Game : MonoBehaviour
                 if (dialogueQueue.Count == 0)
                 {
                     detective.inMenu = false;
-                    detective.talkCooldown = INTERACT_COOLDOWN;
                     sceneDialogueBox.CloseDialogue();
                 }
             }

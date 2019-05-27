@@ -9,22 +9,6 @@ public class InteractHighlighter : MonoBehaviour
 
     public Person highlightedPerson;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void FixedUpdate()
-    {
-    }
-
     public void UpdateHighlight()
     {
         if (people.Count > 0)
