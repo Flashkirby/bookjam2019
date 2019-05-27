@@ -96,5 +96,5 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5243173035866519676}
   displayName: glasses
   displayColour: black
-  verbProgressive: 
-  verbPerfect: 
+  linkingVerb: have
+  adjective: 

@@ -96,5 +96,5 @@ MonoBehaviour:
   spriteRenderer: {fileID: 7032695993867853513}
   displayName: striped badge
   displayColour: 
-  verbProgressive: wearing
-  verbPerfect: wear
+  linkingVerb: have
+  adjective: a

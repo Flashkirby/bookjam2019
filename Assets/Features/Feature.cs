@@ -20,10 +20,17 @@ public class Feature : MonoBehaviour
     /// TYPES: Red, Yellow, Brown, Black, White, Grey, Green, Blue, Purple, Pink
     /// </summary>
     public string displayColour;
-    /// <summary> They are "wearing" a hat. They're usually "wearing" their glasses. </summary>
-    public string verbProgressive;
-    /// <summary> They "wear" a stetson. They sometimes "wear" a hat. </summary>
-    public string verbPerfect;
+
+    /// <summary> They "have" a red hat. They "are" bald. </summary>
+    public string linkingVerb;
+    /// <summary> They are wearing "a" red hat. They are wearing "" green clothes. </summary>
+    public string adjective;
+
+
+    ///// <summary> They are "wearing" a hat. They're usually "wearing" their glasses. </summary>
+    //public string verbProgressive;
+    ///// <summary> They "wear" a stetson. They sometimes "wear" a hat. </summary>
+    //public string verbPerfect;
 
     public void Awake()
     {

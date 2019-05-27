@@ -53,16 +53,19 @@ public class ClueFeature : IClue
     public string generateDialogue()
     {
         string baseString = "";
-        if (clueType == ClueTypes.Useless) { return "Sorry, I don't know anything about that person."; }
-        if (clueType == ClueTypes.Unsure) { baseString = "Unsure: "; }
-        if (clueType == ClueTypes.Partial) { baseString = "Partial Clue: "; }
-        if (clueType == ClueTypes.Complete) { baseString = "Complete Clue: "; }
+        if (clueType == ClueTypes.Useless) { return "Sorry, I don't know what that person looks like."; }
+        if (clueType == ClueTypes.Unsure) { baseString = "I'm not sure. They could"; }
+        if (clueType == ClueTypes.Partial) { baseString = "I think they"; }
+        if (clueType == ClueTypes.Complete) { baseString = "I'm sure they"; }
 
         string featureString = "";
         string endingString = "";
         if (clueType == ClueTypes.Unsure)
         {
-            featureString += sortedFeatures[0].displayColour + (sortedFeatures[0].displayColour == "" ? "" : " ") + sortedFeatures[0].displayName;
+            featureString = 
+                sortedFeatures[0].displayColour + 
+                (sortedFeatures[0].displayColour == "" ? "" : " ") + 
+                sortedFeatures[0].displayName;
             endingString = " or " + sortedFeatures[1].displayColour + (sortedFeatures[1].displayColour == "" ? "" : " ") + sortedFeatures[1].displayName;
         }
         else if (clueType == ClueTypes.Partial)

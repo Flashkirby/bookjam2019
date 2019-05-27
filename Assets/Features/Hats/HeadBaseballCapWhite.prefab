@@ -96,5 +96,5 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6202230224209455944}
   displayName: baseball cap
   displayColour: white
-  verbProgressive: 
-  verbPerfect: 
+  adjective: a
+  linkingVerb: have

@@ -96,5 +96,5 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8904939335521690588}
   displayName: long hair
   displayColour: white
-  verbProgressive: 
-  verbPerfect: 
+  linkingVerb: have
+  adjective: 
