@@ -77,6 +77,7 @@ public class Detective : Person
 
     }
 
+    public bool identifyingSoundPlaying = false;
     void Interact()
     {
         // hide icon if unavailble
@@ -88,9 +89,17 @@ public class Detective : Person
             // Before max hold, after having pressed
             if (interactHoldTime < CONTROL_MIN_HOLD + CONTROL_MAX_HOLD && interactHoldTime != 0f)
             {
+
                 // On early release
                 if (Input.GetButtonUp("Fire1"))
                 {
+
+                    if (identifyingSoundPlaying)
+                    {
+                        identifyingSoundPlaying = false;
+                        Game.S.globalAudioPlayer.Stop();
+                    }
+
                     Debug.Log("interact release early");
 
                     // Release within min time, this is ok
@@ -99,6 +108,7 @@ public class Detective : Person
                         InteractWithEmployee();
                         SetInteractCooldown();
                     }
+               
                     ResetInteract();
                 }
 
@@ -129,10 +139,22 @@ public class Detective : Person
             {
                 if (!PreventInteract && interactHighlighter.highlightedPerson != null)
                 {
+                    if (!identifyingSoundPlaying)
+                    {
+                        identifyingSoundPlaying = true;
+                        Game.S.globalAudioPlayer.clip = Game.S.identifyingSound;
+                        Game.S.globalAudioPlayer.Play();
+                    }
+
                     interactHoldTime += Time.deltaTime;
                 }
                 else
                 {
+                    if (identifyingSoundPlaying)
+                    {
+                        identifyingSoundPlaying = false;
+                        Game.S.globalAudioPlayer.Stop();
+                    }
                     ResetInteract();
                 }
             }
@@ -193,6 +215,7 @@ public class Detective : Person
             } else
             {
                 // HMMM IS A CLUE
+
                 List<IClue> clues = new List<IClue>();
                 clues.Add(ClueFactory.GenerateRandomClueFromEmployee(employee));
                 foreach (var clue in clues)
@@ -214,6 +237,13 @@ public class Detective : Person
         if (interactHighlighter == null) { Debug.LogError("Have you attached the highlighter to this? "); }
         else
         {
+
+            if (identifyingSoundPlaying)
+            {
+                identifyingSoundPlaying = false;
+                Game.S.globalAudioPlayer.Stop();
+            }
+
             Person p = interactHighlighter.highlightedPerson;
             if (p == null) { return; }
             if (!(p is Employee)) { return; }
@@ -226,12 +256,14 @@ public class Detective : Person
             
             if (employee == Game.S.target)
             {
+                Game.S.globalAudioPlayer.PlayOneShot(Game.S.identifySuccess);
                 //We got it right!
                 DialogueFactory.GenerateCorrectIdentifyDialogue(employee, this);
                 Game.S.SetGameWin();
             }
             else
             {
+                Game.S.globalAudioPlayer.PlayOneShot(Game.S.identifyFail);
                 //Set that we've interacted with them
                 employee.interacted = true;
                 employee.transform.position = employee.transform.position.Sum3(0, 0, 1f);
