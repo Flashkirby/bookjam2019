@@ -42,17 +42,30 @@ public class Room : MonoBehaviour
 
     public void GenerateAndAddPeople()
     {
-        for (int i = 0; i < numberOfEmployees; i++)
-        { InstantiatePrefabEmployee(Game.S.pfbEmployee); }
-        for (int i = 0; i < numberOfManagers; i++)
-        { InstantiatePrefabEmployee(Game.S.pfbManager); }
-        for (int i = 0; i < numberOfExecs; i++)
-        { InstantiatePrefabEmployee(Game.S.pfbExecutive); }
-        for (int i = 0; i < numberOfCEOs; i++)
-        { InstantiatePrefabEmployee(Game.S.pfbCEO); }
+        foreach(Person.RankEnum rank in GetRankPool())
+        { InstantiatePrefabFromRank(rank); }
     }
 
-    public void InstantiatePrefabEmployee(GameObject prefabEmployee)
+    public Employee InstantiatePrefabFromRank(Person.RankEnum rank)
+    {
+        switch(rank)
+        {
+            case Person.RankEnum.Manager:
+                numberOfManagers--;
+                return InstantiatePrefabEmployee(Game.S.pfbManager); 
+            case Person.RankEnum.Executive:
+                numberOfExecs--;
+                return InstantiatePrefabEmployee(Game.S.pfbExecutive);
+            case Person.RankEnum.CEO:
+                numberOfCEOs--;
+                return InstantiatePrefabEmployee(Game.S.pfbCEO);
+            default:
+                numberOfEmployees--;
+                return InstantiatePrefabEmployee(Game.S.pfbEmployee);
+        }
+    }
+
+    public Employee InstantiatePrefabEmployee(GameObject prefabEmployee)
     {
         GameObject go = Instantiate(prefabEmployee);
         go.transform.position = PickRandomRoomPosition();
@@ -60,6 +73,8 @@ public class Room : MonoBehaviour
         emp.features.workplace = new KeyValuePair<Room, Logic>(this, Logic.True);
         emp.features.currentLocation = new KeyValuePair<Room, Logic>(this, Logic.True);
         Game.S.employees.Add(emp);
+
+        return emp;
     }
 
     public Vector3 PickRandomRoomPosition(float zMin = 0f, float zMax = 0.9f)
@@ -69,5 +84,15 @@ public class Room : MonoBehaviour
         float randomX = Random.Range(xMin, xMax);
         float randomZ = Random.Range(zMin, zMax);
         return new Vector3(randomX, transform.position.y, randomZ);
+    }
+
+    public List<Person.RankEnum> GetRankPool()
+    {
+        var pool = new List<Person.RankEnum>();
+        for (int i = 0; i < numberOfEmployees; i++) { pool.Add(Person.RankEnum.Employee); }
+        for (int i = 0; i < numberOfManagers; i++) { pool.Add(Person.RankEnum.Manager); }
+        for (int i = 0; i < numberOfExecs; i++) { pool.Add(Person.RankEnum.Executive); }
+        for (int i = 0; i < numberOfCEOs; i++) { pool.Add(Person.RankEnum.CEO); }
+        return pool;
     }
 }
