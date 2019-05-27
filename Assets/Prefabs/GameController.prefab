@@ -226,6 +226,13 @@ MonoBehaviour:
   featurePoolHat:
   - {fileID: 687608981133118239, guid: 4aa2f3d7f8e8ee14bb62004719af529f, type: 3}
   - {fileID: 674390152042871252, guid: 3cdd39d8bf8ba934c9c2e0d2eac0fb43, type: 3}
+  - {fileID: 5607939304759345542, guid: 463ba5468d55dcd4fa629413de3a5bcf, type: 3}
+  - {fileID: 6886694363080011880, guid: 6e85429d1cfbd534d92cca5a3b6ed450, type: 3}
+  - {fileID: 6415480468783260094, guid: f4aa1c0aa7213cc44a2c32d1d398939e, type: 3}
+  - {fileID: 2408770371731151276, guid: 269a7024f941ff54da5cba6c84f0a3da, type: 3}
+  - {fileID: 7787668416331628401, guid: 46a0db01d6c1d20468f0275a641cf6d7, type: 3}
+  - {fileID: 9198166022792756958, guid: b60d38b211c4a2242b3f1cd6e1e97b34, type: 3}
+  - {fileID: 687608981133118239, guid: 4aa2f3d7f8e8ee14bb62004719af529f, type: 3}
   featurePoolGlasses:
   - {fileID: 8127079300360027754, guid: 017d8506030a0eb43accdf2dbfa793ca, type: 3}
   - {fileID: 1786524508792456878, guid: 432ec210b57ef3b478060458859f3da3, type: 3}
