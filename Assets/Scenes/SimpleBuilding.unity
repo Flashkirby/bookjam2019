@@ -184,6 +184,11 @@ PrefabInstance:
       propertyPath: displayName
       value: music studio
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Color.r
@@ -351,6 +356,16 @@ PrefabInstance:
       propertyPath: assignedColor.b
       value: 0.7021663
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfManagers
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
 --- !u!1001 &361825133
@@ -424,6 +439,26 @@ PrefabInstance:
         type: 3}
       propertyPath: displayName
       value: CEO's office
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfManagers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfCEOs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfExecs
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -519,6 +554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: displayName
       value: mail room
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
@@ -667,6 +707,16 @@ PrefabInstance:
         type: 3}
       propertyPath: displayName
       value: marketing deparment
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfManagers
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1091,6 +1141,16 @@ PrefabInstance:
       propertyPath: displayName
       value: programming department
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfManagers
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Color.r
@@ -1179,6 +1239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: displayName
       value: art department
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1343,6 +1408,21 @@ PrefabInstance:
       propertyPath: displayName
       value: meeting room
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfManagers
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfExecs
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Color.r
@@ -1431,6 +1511,16 @@ PrefabInstance:
         type: 3}
       propertyPath: displayName
       value: breakroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfManagers
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1532,6 +1622,21 @@ PrefabInstance:
         type: 3}
       propertyPath: displayName
       value: executive offices
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfExecs
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfManagers
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1636,6 +1741,16 @@ PrefabInstance:
         type: 3}
       propertyPath: assignedColor.b
       value: 0.08018869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfEmployees
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: numberOfManagers
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
