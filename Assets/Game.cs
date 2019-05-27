@@ -69,6 +69,8 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        HandleDebugInput();
+
         HandleGameStart();
 
         HandleDialogue();
@@ -181,6 +183,26 @@ public class Game : MonoBehaviour
 
     }
 
+    public void HandleDebugInput()
+    {
+        if (Input.GetButtonDown("DEBUG_ONE"))
+        {
+            Game.S.detective.anxiety += 0.5f;
+        }
+        if (Input.GetButtonDown("DEBUG_TWO"))
+        {
+            Game.S.detective.anxiety -= 0.5f;
+        }
+        if (Input.GetButtonDown("DEBUG_THREE"))
+        {
+            GameWin();
+        }
+        if (Input.GetButtonDown("DEBUG_FOUR"))
+        {
+            GameOver();
+        }
+    }
+
     public void GenerateNewBadgeAssignment()
     {
         rankBadgeDict = new Dictionary<Person.RankEnum, int>();
@@ -235,12 +257,27 @@ public class Game : MonoBehaviour
     public void GameOver()
     {
         string endString = "You became too anxious and decided to excuse yourself.\n\n"
-        + "You send an apologetic email and will probably try again tomorrow.\n\n"
+        + "You'll send an apologetic email and will probably try again tomorrow.\n\n"
         + "Try again? (Press Space to restart)";
 
         Debug.Log("Game Over!");
         splashScreen.ShowSplashScreen();
         splashScreen.splashText.text = endString;
+
+        Game.S.detective.inMenu = true;
+        isGameOver = true;
+    }
+
+    public void GameWin()
+    {
+        string winString = "You found who you were looking for!\n\n"
+        + "You'll probably want to remember what they look like next time.\n\n"
+        + "(Press Space to restart)";
+
+        Debug.Log("Game Win!");
+        splashScreen.ShowSplashScreen();
+        splashScreen.splashText.text = winString;
+
         Game.S.detective.inMenu = true;
         isGameOver = true;
     }
