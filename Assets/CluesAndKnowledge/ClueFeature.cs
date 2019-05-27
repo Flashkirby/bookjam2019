@@ -54,19 +54,23 @@ public class ClueFeature : IClue
     {
         string baseString = "";
         if (clueType == ClueTypes.Useless) { return "Sorry, I don't know what that person looks like."; }
-        if (clueType == ClueTypes.Unsure) { baseString = "I'm not sure. They could"; }
-        if (clueType == ClueTypes.Partial) { baseString = "I think they"; }
+        if (clueType == ClueTypes.Unsure) { baseString = "I think they"; }
+        if (clueType == ClueTypes.Partial) { baseString = "As far as I know, they"; }
         if (clueType == ClueTypes.Complete) { baseString = "I'm sure they"; }
 
         string featureString = "";
-        string endingString = "";
+        string endingString = ".";
         if (clueType == ClueTypes.Unsure)
         {
             featureString = 
                 sortedFeatures[0].displayColour + 
                 (sortedFeatures[0].displayColour == "" ? "" : " ") + 
                 sortedFeatures[0].displayName;
-            endingString = " or " + sortedFeatures[1].displayColour + (sortedFeatures[1].displayColour == "" ? "" : " ") + sortedFeatures[1].displayName;
+            endingString = " or " + 
+                sortedFeatures[1].displayColour + 
+                (sortedFeatures[1].displayColour == "" ? "" : " ") + 
+                sortedFeatures[1].displayName +
+                ".";
         }
         else if (clueType == ClueTypes.Partial)
         {

@@ -42,17 +42,17 @@ public class ClueRoom : IClue
     public string generateDialogue()
     {
         string baseString = "";
-        if (clueType == ClueTypes.Useless) { return "Sorry, I don't know where that person is."; }
-        if (clueType == ClueTypes.Unsure) { baseString = "Unsure: "; }
-        if (clueType == ClueTypes.Partial) { baseString = "Partial Clue: "; }
-        if (clueType == ClueTypes.Complete) { baseString = "Complete Clue: "; }
+        if (clueType == ClueTypes.Useless) { return "Sorry, I don't where that person works."; }
+        if (clueType == ClueTypes.Unsure) { baseString = "The might be in the"; }
+        if (clueType == ClueTypes.Partial) { baseString = "I think I last saw them in the"; }
+        if (clueType == ClueTypes.Complete) { baseString = "Oh yeah! They were just in the"; }
 
         string featureString = "";
-        string endingString = "";
+        string endingString = ".";
         if (clueType == ClueTypes.Unsure)
         {
             featureString += sortedRooms[0].displayName;
-            endingString = " or " + sortedRooms[1].displayName;
+            endingString = " or the " + sortedRooms[1].displayName + ".";
         }
         else if (clueType == ClueTypes.Partial || clueType == ClueTypes.Complete)
         {

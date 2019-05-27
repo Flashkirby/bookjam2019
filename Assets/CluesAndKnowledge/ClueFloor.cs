@@ -43,16 +43,16 @@ public class ClueFloor : IClue
     {
         string baseString = "";
         if (clueType == ClueTypes.Useless) { return "Sorry, I don't know where that person is."; }
-        if (clueType == ClueTypes.Unsure) { baseString = "Unsure: "; }
-        if (clueType == ClueTypes.Partial) { baseString = "Partial Clue: "; }
-        if (clueType == ClueTypes.Complete) { baseString = "Complete Clue: "; }
+        if (clueType == ClueTypes.Unsure) { baseString = "They're either on the"; }
+        if (clueType == ClueTypes.Partial) { baseString = "As far as I know, they're on the"; }
+        if (clueType == ClueTypes.Complete) { baseString = "I'm certain they're on the"; }
 
         string featureString = "";
-        string endingString = "";
+        string endingString = ".";
         if (clueType == ClueTypes.Unsure)
         {
             featureString += sortedFloors[0].displayName;
-            endingString = " or " + sortedFloors[1].displayName;
+            endingString = " or " + sortedFloors[1].displayName + ".";
         }
         else if (clueType == ClueTypes.Partial || clueType == ClueTypes.Complete)
         {
