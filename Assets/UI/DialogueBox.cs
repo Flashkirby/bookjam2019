@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueBox : MonoBehaviour
@@ -7,6 +6,8 @@ public class DialogueBox : MonoBehaviour
     public Text nameLeft;
     public Text nameRight;
     public Text dialogueText;
+
+    public AudioClip dialogueOpenSound;
 
     // Start is called before the first frame update
     void Start()
@@ -21,20 +22,25 @@ public class DialogueBox : MonoBehaviour
 
     public void OpenDialogue()
     {
-        ClearDialogue();
-        Dialogue topDialogue = Game.S.dialogueQueue.Peek();
-        if (topDialogue.isSpeakerRight)
+        if (!gameObject.activeSelf)
         {
-            nameRight.text = topDialogue.speaker;
-        }
-        else
-        {
-            nameLeft.text = topDialogue.speaker;
+            Game.S.globalAudioPlayer.PlayOneShot(dialogueOpenSound);
+            ClearDialogue();
+            Dialogue topDialogue = Game.S.dialogueQueue.Peek();
+            if (topDialogue.isSpeakerRight)
+            {
+                nameRight.text = topDialogue.speaker;
+            }
+            else
+            {
+                nameLeft.text = topDialogue.speaker;
+            }
+
+            dialogueText.text = topDialogue.dialogueText;
+
+            gameObject.SetActive(true);
         }
 
-        dialogueText.text = topDialogue.dialogueText;
-
-        gameObject.SetActive(true);
     }
 
     public void CloseDialogue()

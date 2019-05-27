@@ -1959,6 +1959,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
+--- !u!82 &1744790622 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8440221009955848130, guid: d03f1f0fab755124e8a895a529a16821,
+    type: 3}
+  m_PrefabInstance: {fileID: 1780659926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1780659926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1966,15 +1972,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8440221009955848130, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7283524587506676749, guid: d03f1f0fab755124e8a895a529a16821,
         type: 3}
       propertyPath: m_Name
       value: GameController
-      objectReference: {fileID: 0}
-    - target: {fileID: 6027753949364418665, guid: d03f1f0fab755124e8a895a529a16821,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9890398274314804, guid: d03f1f0fab755124e8a895a529a16821, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2020,6 +2026,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64850409361931751, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: globalAudioPlayer
+      value: 
+      objectReference: {fileID: 1744790622}
+    - target: {fileID: 64850409361931751, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: identifyingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 819924fec296f3f4bb85a0bcfe71f01c, type: 3}
+    - target: {fileID: 64850409361931751, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: identifyFail
+      value: 
+      objectReference: {fileID: 8300000, guid: a46c158cfaf61c14c90a699bbed62732, type: 3}
+    - target: {fileID: 64850409361931751, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: identifySuccess
+      value: 
+      objectReference: {fileID: 8300000, guid: 114745c4bf9ae6641801298c45bd227c, type: 3}
     - target: {fileID: 8799248838910114543, guid: d03f1f0fab755124e8a895a529a16821,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2044,6 +2070,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6017408701295128520, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210500917855132011, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: dialogueOpenSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bdce94816f8b4d4fbcf18855fe31a73, type: 3}
+    - target: {fileID: 6027753949364418665, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03f1f0fab755124e8a895a529a16821, type: 3}
@@ -2600,6 +2641,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270308651}
     m_Modifications:
+    - target: {fileID: 4613758500382135230, guid: 0738e5e606e89ed4089fe7a9cefa9c2d,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613758500382135230, guid: 0738e5e606e89ed4089fe7a9cefa9c2d,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5986813426710398232, guid: 0738e5e606e89ed4089fe7a9cefa9c2d,
         type: 3}
       propertyPath: m_Name

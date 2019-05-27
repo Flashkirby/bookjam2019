@@ -49,6 +49,12 @@ public class Game : MonoBehaviour
 
     public bool triedToQuestionTarget = false;
 
+    public AudioSource globalAudioPlayer;
+
+    public AudioClip identifyingSound;
+    public AudioClip identifyFail;
+    public AudioClip identifySuccess;
+
     // Awake is called on initialisation, before the component becomes active
     void Awake()
     {
