@@ -34,4 +34,6 @@ public static class Config
     public const float ANXIETY_DIALOGUE_INCREASE = 0.05f;
     public const float ANXIETY_DIALOGUE_WITH_TARGET_INCREASE = 0.30f;
     public const float ANXIETY_WRONG_IDENTIFY_INCREASE = 0.30f;
+
+    public const int SORT_ORDER_FURNITURE = -1;
 }
