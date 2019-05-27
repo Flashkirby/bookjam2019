@@ -8,9 +8,6 @@ public class DialogueBox : MonoBehaviour
     public Text nameRight;
     public Text dialogueText;
 
-    public Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -36,11 +33,9 @@ public class DialogueBox : MonoBehaviour
 
     void ProcessDialogue()
     {
-        if (dialogueQueue.Count != 0)
+        if (Game.S.dialogueQueue.Count != 0)
         {
-            Game.S.detective.inMenu = true;
-
-            Dialogue topDialogue = dialogueQueue.Peek();
+            Dialogue topDialogue = Game.S.dialogueQueue.Peek();
 
             ClearDialogue();
 
@@ -56,17 +51,10 @@ public class DialogueBox : MonoBehaviour
             dialogueText.text = topDialogue.dialogueText;
             OpenDialogue();
         }
-
-        if (Input.GetButtonDown("Fire1"))
+        else
         {
-            dialogueQueue.Dequeue();
-            if (dialogueQueue.Count == 0)
-            {
-                Game.S.detective.inMenu = false;
-                CloseDialogue();
-            }
+            CloseDialogue();
         }
-
     }
 
     void OpenDialogue()

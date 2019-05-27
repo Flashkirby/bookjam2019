@@ -27,6 +27,8 @@ public class Game : MonoBehaviour
 
     public Employee target;
 
+    public Queue<Dialogue> dialogueQueue = new Queue<Dialogue>();
+
     public Detective detective;
     public FactBook factBook;
 
@@ -60,6 +62,31 @@ public class Game : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        HandleGameStart();
+
+        HandleDialogue();
+
+        if (detective.inMenu)
+        {
+            if (isGameOver)
+            {
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    HandleRestart();
+                }
+            }
+            if (isStartSplash)
+            {
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    HandleStartSplash();
+                }
+            }
+        }
+    }
+
+    private void HandleGameStart()
     {
         if (!isGameStarted)
         {
@@ -104,6 +131,22 @@ public class Game : MonoBehaviour
             }
 
             isGameStarted = true;
+        }
+    }
+
+    private void HandleDialogue()
+    {
+        if (dialogueQueue.Count != 0)
+        {
+            detective.inMenu = true;
+        }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            dialogueQueue.Dequeue();
+            if (dialogueQueue.Count == 0)
+            {
+                detective.inMenu = false;
+            }
         }
     }
 
