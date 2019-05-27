@@ -51,7 +51,7 @@ public class ClueFloor : IClue
         if (clueType == ClueTypes.Unsure)
         {
             featureString += sortedFloors[0].displayName;
-            endingString = " or " + sortedFloors[1].displayName;
+            endingString = " or the " + sortedFloors[1].displayName;
         }
         else if (clueType == ClueTypes.Partial || clueType == ClueTypes.Complete)
         {
