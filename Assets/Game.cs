@@ -36,7 +36,7 @@ public class Game : MonoBehaviour
 
     public SplashScreen splashScreen;
 
-    public Camera camera;
+    public new Camera camera;
     private Vector3 offset;            //Private variable to store the offset distance between the player and camera
 
     public bool isGameOver = false;
@@ -99,6 +99,11 @@ public class Game : MonoBehaviour
     {
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         camera.transform.position = detective.transform.position + offset;
+
+        int ppu = PIXEL_PER_UNIT;
+        if (Input.GetButton("Map"))
+        { ppu = PIXEL_PER_UNIT_ZOOM_OUT; }
+        camera.GetComponent<UnityEngine.U2D.PixelPerfectCamera>().assetsPPU = ppu;
     }
 
     private void HandleGameStart()

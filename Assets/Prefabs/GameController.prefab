@@ -93,7 +93,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4889617788570452643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9890398274314804}
@@ -248,6 +248,7 @@ MonoBehaviour:
   detective: {fileID: 0}
   factBook: {fileID: 1661103334440714649}
   splashScreen: {fileID: 2210500919522150932}
+  camera: {fileID: 5587095282375275462}
   isGameOver: 0
   isGameStarted: 0
   isStartSplash: 0

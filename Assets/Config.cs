@@ -12,7 +12,9 @@ public static class Config
     public const float MAX_WALK_SPEED = 5f;
     public const float MAX_EMPLOYEE_WALK_SPEED = 1f;
 
-    public const float PIXEL = 0.0625f;
+    public const int PIXEL_PER_UNIT = 16;
+    public const int PIXEL_PER_UNIT_ZOOM_OUT = 8;
+    public const float PIXEL = 1f / 16; // 0.0625f
 
     public const float CONTROL_DEADZONE = 0.3f;
 
