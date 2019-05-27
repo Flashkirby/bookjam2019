@@ -5,9 +5,9 @@ using static Config;
 public class Employee : Person
 {
     /// <summary> Where they work. </summary>
-    public Room workplace;
+    public Room Workplace { get { return features.workplace.Key; } }
     /// <summary> Which room they are currently in. </summary>
-    public Room currentLocation;
+    public Room CurrentLocation { get { return features.currentLocation.Key; } }
     /// <summary> What rank they are exec, CEO, etc.</summary>
     public RankEnum rank;
 
@@ -83,7 +83,8 @@ public class Employee : Person
     public override void GenerateAdditionalFeatures(int yPixelOffset)
     {
         GameObject pfbBadge = Game.S.getPrefabBadgeFromRank(rank);
-        FeatureFactory.InstantiateFeature(this, pfbBadge, yPixelOffset);
+        Feature badge = FeatureFactory.InstantiateFeature(this, pfbBadge, yPixelOffset);
+        badge.FeatureColour = Workplace.assignedColor;
     }
 
 }

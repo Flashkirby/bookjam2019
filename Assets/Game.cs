@@ -88,10 +88,10 @@ public class Game : MonoBehaviour
                 var features = target.features.getTrueOrnaments();
                 Feature debugFeature = features.PickRandom();
 
-                var rooms = target.currentLocation;
+                var rooms = target.CurrentLocation;
                 Feature debugRoom = features.PickRandom();
 
-                var floors = target.currentLocation;
+                var floors = target.CurrentLocation;
                 Feature debugFloor = features.PickRandom();
 
                 var clueTypeArray = Enum.GetValues(typeof(ClueFactory.ClueTypes));
