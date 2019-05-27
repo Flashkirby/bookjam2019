@@ -3,11 +3,10 @@ using System.Linq;
 using static ClueFactory;
 public class ClueFloor : IClue
 {
-
-    ClueTypes clueType;
-    Floor floor;
-    Floor fakeFloor;
-    List<Floor> sortedFloors;
+    public ClueTypes clueType;
+    public Floor floor;
+    public Floor fakeFloor;
+    public List<Floor> sortedFloors;
 
     public ClueFloor(ClueTypes clueType, Floor floor)
     {

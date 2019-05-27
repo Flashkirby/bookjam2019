@@ -1204,6 +1204,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6027753949364418665, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7283524587506676749, guid: d03f1f0fab755124e8a895a529a16821,
         type: 3}
       propertyPath: m_Name
@@ -1253,27 +1258,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 64850409361931751, guid: d03f1f0fab755124e8a895a529a16821,
-        type: 3}
-      propertyPath: featurePoolHat.Array.data[0]
-      value: 
-      objectReference: {fileID: 687608981133118239, guid: 4aa2f3d7f8e8ee14bb62004719af529f,
-        type: 3}
-    - target: {fileID: 64850409361931751, guid: d03f1f0fab755124e8a895a529a16821,
-        type: 3}
-      propertyPath: featurePoolGlasses.Array.data[0]
-      value: 
-      objectReference: {fileID: 8127079300360027754, guid: 017d8506030a0eb43accdf2dbfa793ca,
-        type: 3}
     - target: {fileID: 8799248838910114543, guid: d03f1f0fab755124e8a895a529a16821,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6027753949364418665, guid: d03f1f0fab755124e8a895a529a16821,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03f1f0fab755124e8a895a529a16821, type: 3}

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ClueFactory;
 
 public static class DialogueFactory
 {
@@ -19,34 +20,51 @@ public static class DialogueFactory
 
     private static string GenerateDialogueFrom(IClue clue)
     {
-        return "BLAH! " + clue.ToFactBookString();
+        if(clue is ClueFeature)
+        {
+            return generateFeatureDialogue((ClueFeature)clue);
+        }
+        if (clue is ClueFloor)
+        {
+            return generateFloorDialogue((ClueFloor)clue);
+        }
+        if (clue is ClueRoom)
+        {
+            return generateRoomDialogue((ClueRoom)clue);
+        }
+
+        return "Who?";
     }
 
-    // FEATURE
-    /* 
-
-    public string GenerateDialogue()
+    public static string generateFeatureDialogue(ClueFeature clue)
     {
         string baseString = "";
-        if (clueType == ClueTypes.Useless) { return "Sorry, I don't know anything about that person."; }
-        if (clueType == ClueTypes.Unsure) { baseString = "Unsure: "; }
-        if (clueType == ClueTypes.Partial) { baseString = "Partial Clue: "; }
-        if (clueType == ClueTypes.Complete) { baseString = "Complete Clue: "; }
+        if (clue.clueType == ClueTypes.Useless) { return "Sorry, I don't know what that person looks like."; }
+        if (clue.clueType == ClueTypes.Unsure) { baseString = "I think they"; }
+        if (clue.clueType == ClueTypes.Partial) { baseString = "As far as I know, they"; }
+        if (clue.clueType == ClueTypes.Complete) { baseString = "I'm sure they"; }
 
         string featureString = "";
-        string endingString = "";
-        if (clueType == ClueTypes.Unsure)
+        string endingString = ".";
+        if (clue.clueType == ClueTypes.Unsure)
         {
-            featureString += sortedFeatures[0].displayColour + (sortedFeatures[0].displayColour == "" ? "" : " ") + sortedFeatures[0].displayName;
-            endingString = " or " + sortedFeatures[1].displayColour + (sortedFeatures[1].displayColour == "" ? "" : " ") + sortedFeatures[1].displayName;
+            featureString =
+                clue.sortedFeatures[0].displayColour +
+                (clue.sortedFeatures[0].displayColour == "" ? "" : " ") +
+                clue.sortedFeatures[0].displayName;
+            endingString = " or " +
+                clue.sortedFeatures[1].displayColour +
+                (clue.sortedFeatures[1].displayColour == "" ? "" : " ") +
+                clue.sortedFeatures[1].displayName +
+                ".";
         }
-        else if (clueType == ClueTypes.Partial)
+        else if (clue.clueType == ClueTypes.Partial)
         {
-            featureString += sortedFeatures[0].displayName;
+            featureString += clue.sortedFeatures[0].displayName;
         }
-        else if (clueType == ClueTypes.Complete)
+        else if (clue.clueType == ClueTypes.Complete)
         {
-            featureString += (sortedFeatures[0].displayColour == "" ? "" : " ") + sortedFeatures[0].displayName;
+            featureString += (clue.sortedFeatures[0].displayColour == "" ? "" : " ") + clue.sortedFeatures[0].displayName;
         }
 
         baseString += featureString;
@@ -54,29 +72,26 @@ public static class DialogueFactory
 
         return baseString;
     }
-    */
 
-    // FLOOR
-    /*
 
-    public string GenerateDialogue()
+    public static string generateFloorDialogue(ClueFloor clue)
     {
         string baseString = "";
-        if (clueType == ClueTypes.Useless) { return "Sorry, I don't know where that person is."; }
-        if (clueType == ClueTypes.Unsure) { baseString = "Unsure: "; }
-        if (clueType == ClueTypes.Partial) { baseString = "Partial Clue: "; }
-        if (clueType == ClueTypes.Complete) { baseString = "Complete Clue: "; }
+        if (clue.clueType == ClueTypes.Useless) { return "Sorry, I don't know where that person is."; }
+        if (clue.clueType == ClueTypes.Unsure) { baseString = "They're either on the"; }
+        if (clue.clueType == ClueTypes.Partial) { baseString = "As far as I know, they're on the"; }
+        if (clue.clueType == ClueTypes.Complete) { baseString = "I'm certain they're on the"; }
 
         string featureString = "";
-        string endingString = "";
-        if (clueType == ClueTypes.Unsure)
+        string endingString = ".";
+        if (clue.clueType == ClueTypes.Unsure)
         {
-            featureString += sortedFloors[0].displayName;
-            endingString = " or " + sortedFloors[1].displayName;
+            featureString += clue.sortedFloors[0].displayName;
+            endingString = " or " + clue.sortedFloors[1].displayName + ".";
         }
-        else if (clueType == ClueTypes.Partial || clueType == ClueTypes.Complete)
+        else if (clue.clueType == ClueTypes.Partial || clue.clueType == ClueTypes.Complete)
         {
-            featureString += sortedFloors[0].displayName;
+            featureString += clue.sortedFloors[0].displayName;
         }
 
         baseString += featureString;
@@ -84,29 +99,25 @@ public static class DialogueFactory
 
         return baseString;
     }
-     */
 
-    // ROOM
-    /*
-
-    public string GenerateDialogue()
+    public static string generateRoomDialogue(ClueRoom clue)
     {
         string baseString = "";
-        if (clueType == ClueTypes.Useless) { return "Sorry, I don't know where that person is."; }
-        if (clueType == ClueTypes.Unsure) { baseString = "Unsure: "; }
-        if (clueType == ClueTypes.Partial) { baseString = "Partial Clue: "; }
-        if (clueType == ClueTypes.Complete) { baseString = "Complete Clue: "; }
+        if (clue.clueType == ClueTypes.Useless) { return "Sorry, I don't where that person works."; }
+        if (clue.clueType == ClueTypes.Unsure) { baseString = "The might be in the"; }
+        if (clue.clueType == ClueTypes.Partial) { baseString = "I think I last saw them in the"; }
+        if (clue.clueType == ClueTypes.Complete) { baseString = "Oh yeah! They were just in the"; }
 
         string featureString = "";
-        string endingString = "";
-        if (clueType == ClueTypes.Unsure)
+        string endingString = ".";
+        if (clue.clueType == ClueTypes.Unsure)
         {
-            featureString += sortedRooms[0].displayName;
-            endingString = " or " + sortedRooms[1].displayName;
+            featureString += clue.sortedRooms[0].displayName;
+            endingString = " or the " + clue.sortedRooms[1].displayName + ".";
         }
-        else if (clueType == ClueTypes.Partial || clueType == ClueTypes.Complete)
+        else if (clue.clueType == ClueTypes.Partial || clue.clueType == ClueTypes.Complete)
         {
-            featureString += sortedRooms[0].displayName;
+            featureString += clue.sortedRooms[0].displayName;
         }
 
         baseString += featureString;
@@ -114,5 +125,4 @@ public static class DialogueFactory
 
         return baseString;
     }
-     */
 }

@@ -5,11 +5,10 @@ using static ClueFactory;
 
 public class ClueFeature : IClue
 {
-
-    ClueTypes clueType;
-    Feature feature;
-    Feature fakeFeature;
-    List<Feature> sortedFeatures;
+    public ClueTypes clueType;
+    public Feature feature;
+    public Feature fakeFeature;
+    public List<Feature> sortedFeatures;
 
     //Clue needs a ClueTypes
     //For Useless, we just need a string, we don't need to add to notebook

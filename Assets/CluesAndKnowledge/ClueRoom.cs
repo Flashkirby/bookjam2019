@@ -4,10 +4,10 @@ using static ClueFactory;
 
 public class ClueRoom : IClue
 {
-    ClueTypes clueType;
-    Room room;
-    Room fakeRoom;
-    List<Room> sortedRooms;
+    public ClueTypes clueType;
+    public Room room;
+    public Room fakeRoom;
+    public List<Room> sortedRooms;
 
     public ClueRoom(ClueTypes clueType, Room room)
     {
