@@ -83,13 +83,29 @@ public class Game : MonoBehaviour
             target = employees.First();
 
             //TODO: Remove, debug for notebook
-            var features = target.features.getTrueOrnaments();
-            Debug.Log(features.Count);
-            Feature debugFeature = features.First();
+            for (int i = 0; i < 10; i++)
+            {
+                var features = target.features.getTrueOrnaments();
+                Feature debugFeature = features.PickRandom();
 
-            Clue debugClue = new Clue(ClueFactory.ClueTypes.Unsure, debugFeature);
-            Debug.Log(debugClue.ToFactBookString());
-            factBook.addClue(debugClue.ToFactBookString());
+                var rooms = target.currentLocation;
+                Feature debugRoom = features.PickRandom();
+
+                var floors = target.currentLocation;
+                Feature debugFloor = features.PickRandom();
+
+                var clueTypeArray = Enum.GetValues(typeof(ClueFactory.ClueTypes));
+                ClueFactory.ClueTypes randomClueType = (ClueFactory.ClueTypes)clueTypeArray.GetValue(Utils.rnd.Next(clueTypeArray.Length));
+
+
+
+                IClue debugClueFeature = new ClueFeature(randomClueType, debugFeature);
+                factBook.addClue(debugClueFeature.ToFactBookString());
+                IClue debugClueRoom = new ClueFeature(randomClueType, debugRoom);
+                factBook.addClue(debugClueRoom.ToFactBookString());
+                IClue debugClueFloor = new ClueFeature(randomClueType, debugFloor);
+                factBook.addClue(debugClueFloor.ToFactBookString());
+            }
 
             isGameStarted = true;
         }

@@ -4,8 +4,6 @@ using static Config;
 
 public class Employee : Person
 {
-    private List<Clue> Clues;
-
     /// <summary> Where they work. </summary>
     public Room workplace;
     /// <summary> Which room they are currently in. </summary>

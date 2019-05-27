@@ -72,7 +72,14 @@ public class FactBook : MonoBehaviour
 
     public void addClue(string clueString)
     {
-        clueList.Add(clueString);
+        if (clueList.Contains(clueString) || clueString == "USELESS")
+        {
+            // You already have this clue message?
+        } else
+        {
+            clueList.Add(clueString);
+        }
+        
     }
 
     void printCluesToFactBook()

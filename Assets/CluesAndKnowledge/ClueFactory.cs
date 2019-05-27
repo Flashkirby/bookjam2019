@@ -1,45 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
+using UnityEngine;
+using static Utils;
 
 public static class ClueFactory
 {
     public enum ClueTypes
     {
         Useless, //No information
-        Vague, //I think they wear a hat / I think they wear something green
+        Partial, //I think they wear a hat / I think they wear something green
         Unsure, //Either or
-        Perfect, // They wear a green bowler hat.
+        Complete, // They wear a green bowler hat.
         TESTING,
     }
 
     private static Dictionary<ClueTypes, int> LowLevelEmployeeClueProbs = new Dictionary<ClueTypes, int>()
     {
         {ClueTypes.Useless, 20},
-        {ClueTypes.Vague, 10},
+        {ClueTypes.Partial, 10},
         {ClueTypes.Unsure, 50},
-        {ClueTypes.Perfect, 20},
+        {ClueTypes.Complete, 20},
     };
     private static Dictionary<ClueTypes, int> ManagerEmployeeClueProbs = new Dictionary<ClueTypes, int>()
     {
         {ClueTypes.Useless, 20},
-        {ClueTypes.Vague, 5},
+        {ClueTypes.Partial, 5},
         {ClueTypes.Unsure, 50},
-        {ClueTypes.Perfect, 25},
+        {ClueTypes.Complete, 25},
     };
     private static Dictionary<ClueTypes, int> ExecEmployeeClueProbs = new Dictionary<ClueTypes, int>()
     {
         {ClueTypes.Useless, 30},
-        {ClueTypes.Vague, 20},
+        {ClueTypes.Partial, 20},
         {ClueTypes.Unsure, 10},
-        {ClueTypes.Perfect, 40},
+        {ClueTypes.Complete, 40},
     };
     private static Dictionary<ClueTypes, int> CEOEmployeeClueProbs = new Dictionary<ClueTypes, int>()
     {
         {ClueTypes.Useless, 40},
-        {ClueTypes.Vague, 0},
+        {ClueTypes.Partial, 0},
         {ClueTypes.Unsure, 0},
-        {ClueTypes.Perfect, 60},
+        {ClueTypes.Complete, 60},
     };
 
     //Special Cases:
@@ -47,12 +47,10 @@ public static class ClueFactory
     //Manager of the employee
 
 
-    public static Clue GenerateRandomClueFromEmployeeAndTarget(Employee employee, Employee target)
+    public static IClue GenerateRandomClueFromEmployeeAndTarget(Employee employee, Employee target)
     {
         // TODO: Logic here please.
-
-        Random random = new Random();
-        int roll = random.Next(1, 101);
+        int roll = rnd.Next(1, 101);
 
         //Generating random clue type
         ClueTypes randomClueType = ClueTypes.TESTING;
@@ -78,6 +76,9 @@ public static class ClueFactory
                 break;
         }
 
+        Debug.Log("Randomly Rolled: " + roll);
+        Debug.Log("Random Clue Category: " + randomClueType);
+
         //if (Employee.currentLocation == Target.currentLocation)
         //{
         //
@@ -86,7 +87,9 @@ public static class ClueFactory
         //TODO: Pick feature
         Feature feature = new Feature();
 
-        return new Clue(randomClueType, feature);
+        IClue generatedClue = new ClueFeature(randomClueType, feature); ;
+
+        return generatedClue;
     }
 
     private static ClueTypes PickClueCategory(int randomRoll, Dictionary<ClueTypes, int> probabilities)
