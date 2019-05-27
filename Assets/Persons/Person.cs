@@ -33,8 +33,6 @@ public class Person : MonoBehaviour
     public void Awake()
     {
         features = new Knowledge();
-        Debug.Log("workplace is null");
-        Debug.Log("currentLocation is null");
 
         collider = GetComponent<BoxCollider2D>();
         rigidBody = GetComponent<Rigidbody2D>();
