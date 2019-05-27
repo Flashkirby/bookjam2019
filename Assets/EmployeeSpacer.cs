@@ -11,12 +11,15 @@ public class EmployeeSpacer : MonoBehaviour
     }
     public void OnTriggerStay2D(Collider2D other)
     {
+        if (employee == null) return;
         if (other.GetComponent<Employee>() != null)
         {
             Employee e = other.GetComponent<Employee>();
-            if (employee != null)
+            bool bothStandingStill = employee.rigidBody.velocity.x == 0 && e.rigidBody.velocity.x == 0;
+            if (bothStandingStill)
             {
-                employee.controlX += employee.transform.position.x - e.transform.position.x;
+                employee.mingleDir = Utils.Dir(employee.transform.position.x - e.transform.position.x);
+                employee.mingleTime = Config.MINGLE_WALK_BUMP_TIME;
             }
         }
     }

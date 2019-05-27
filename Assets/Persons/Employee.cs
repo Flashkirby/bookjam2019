@@ -39,7 +39,7 @@ public class Employee : Person
                 mingleTime += Time.fixedDeltaTime;
                 if (mingleTime >= 0)
                 {   // Start walking
-                    mingleTime = Random.Range(0, MINGLE_WALK_MAX);
+                    mingleTime = Random.Range(MINGLE_WALK_MIN, MINGLE_WALK_MAX);
                     mingleDir = Utils.RandomDir();
                 }
             }
