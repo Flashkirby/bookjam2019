@@ -36,6 +36,16 @@ public static class DialogueFactory
         return "Who?";
     }
 
+    public static string GenerateCorrectIdentifyDialogue()
+    {
+        return "Hi there! Nice to see you again!";
+    }
+
+    public static string GenerateIncorrectIdentifyDialogue()
+    {
+        return "What? No, I'm not.";
+    }
+
     public static string generateFeatureDialogue(ClueFeature clue)
     {
         string baseString = "";
