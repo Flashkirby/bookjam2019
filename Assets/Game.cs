@@ -143,16 +143,16 @@ public class Game : MonoBehaviour
         {
             Debug.Log("Game setup!");
             string startString = "You're at this company to meet someone you met at a conference once.\n\n" +
-                "All you have is a name on a minimalist business card 'John Smith'.\n\n" +
+                "All you have is a name on a minimalist business card '" + Game.S.target.displayName + "'.\n\n" +
                 "You might have to ask around to see if anyone has seen them.\n\n" +
                 "You're feeling a little anxious today though, so you don't want to spend too long here.\n\n" +
                 "(Press Space to start)\n\n";
 
             Debug.Log("Game start!");
-            //splashScreen.ShowSplashScreen();
-            //splashScreen.splashText.text = startString;
-            //Game.S.detective.inMenu = true;
-            //isStartSplash = true;
+            splashScreen.ShowSplashScreen();
+            splashScreen.splashText.text = startString;
+            Game.S.detective.inMenu = true;
+            isStartSplash = true;
             isGameOver = false;
 
 
