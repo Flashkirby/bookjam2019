@@ -23,6 +23,9 @@ public class UselessClueGenerator
         "Does this place have toilets?",
         "I don't want to talk to you.",
         "I miss when games were good. Wanna play Tetris?",
-        "Why is no one doing any work?"
+        "Why is no one doing any work?",
+        "I heard there's a game jam coming up. It sounds really cool!",
+        "Do you ever wonder if you're trapped inside a computer?",
+
     };
 }
