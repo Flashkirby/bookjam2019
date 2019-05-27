@@ -5,7 +5,7 @@ using static Config;
 
 public static class Utils
 {
-    static System.Random rnd = new System.Random();
+    public static System.Random rnd = new System.Random();
 
     public static Vector3 SetX3(this Vector3 position, float x = 0)
     {
