@@ -36,6 +36,9 @@ public class Game : MonoBehaviour
 
     public SplashScreen splashScreen;
 
+    public Camera camera;
+    private Vector3 offset;            //Private variable to store the offset distance between the player and camera
+
     public bool isGameOver = false;
     public bool isGameStarted = false;
     public bool isStartSplash = false;
@@ -59,7 +62,8 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update, after being enabled
     void Start()
     {
-
+        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
+        offset = camera.transform.position - detective.transform.position;
     }
 
     // Update is called once per frame
@@ -86,6 +90,13 @@ public class Game : MonoBehaviour
                 }
             }
         }
+    }
+
+    // LateUpdate is called after Update each frame
+    void LateUpdate()
+    {
+        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
+        camera.transform.position = detective.transform.position + offset;
     }
 
     private void HandleGameStart()
