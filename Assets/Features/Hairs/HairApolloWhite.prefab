@@ -96,5 +96,5 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4302424632925453003}
   displayName: short hair
   displayColour: white
-  verbProgressive: 
-  verbPerfect: 
+  adjective: 
+  linkingVerb: have

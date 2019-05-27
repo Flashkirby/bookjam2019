@@ -96,5 +96,5 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5932865556715614005}
   displayName: bald
   displayColour: 
-  verbProgressive: 
-  verbPerfect: 
+  linkingVerb: are
+  adjective: 

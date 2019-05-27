@@ -96,5 +96,5 @@ MonoBehaviour:
   spriteRenderer: {fileID: 6252040250650368387}
   displayName: no hat
   displayColour: 
-  verbProgressive: 
-  verbPerfect: 
+  adjective: 
+  linkingVerb: have
