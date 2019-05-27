@@ -122,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room (3)
+      value: Music
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -179,6 +179,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: music studio
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.26037517
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.251958
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
 --- !u!4 &118531573 stripped
@@ -215,8 +235,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1321345370}
   - {fileID: 1294863777}
+  - {fileID: 1321345370}
   - {fileID: 238468248}
   - {fileID: 1527073834}
   m_Father: {fileID: 1270308651}
@@ -254,7 +274,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room (1)
+      value: Canteen
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -311,6 +331,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: canteen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: assignedColor.r
+      value: 0.66082233
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: assignedColor.g
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: assignedColor.b
+      value: 0.7021663
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
 --- !u!1001 &361825133
@@ -323,7 +363,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room (3)
+      value: CEO
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -379,6 +419,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: CEO's office
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.3679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.21693662
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.22553447
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
@@ -398,7 +458,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room (3)
+      value: Post
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -455,6 +515,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: mail room
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
 --- !u!1001 &544543137
@@ -467,7 +532,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room (2)
+      value: Finance
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -524,6 +589,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: finance department
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
 --- !u!1001 &570171578
@@ -536,7 +606,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room (1)
+      value: Marketing
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -576,7 +646,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -592,6 +662,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: marketing deparment
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.4822359
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.31367925
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
@@ -939,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room (1)
+      value: Programming
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -996,6 +1086,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: programming department
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.26037517
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.251958
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
 --- !u!1001 &1661974613
@@ -1008,7 +1118,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room (2)
+      value: Art
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1064,6 +1174,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: art department
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.26037517
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.251958
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
@@ -1151,7 +1281,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room
+      value: Meeting Room
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1207,6 +1337,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: meeting room
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.26037517
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.251958
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
@@ -1220,7 +1370,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room
+      value: Break Room
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1260,7 +1410,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1276,6 +1426,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: breakroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.4822359
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.31367925
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
@@ -1301,7 +1471,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room (2)
+      value: Execs
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1358,6 +1528,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: executive offices
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.4822359
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.31367925
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}
 --- !u!1001 &1832141339834950097
@@ -1370,7 +1560,7 @@ PrefabInstance:
     - target: {fileID: 1832141338764399212, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
       propertyPath: m_Name
-      value: Room
+      value: Reception
       objectReference: {fileID: 0}
     - target: {fileID: 1832141338764399215, guid: 3821123bfb97d6a4ca76d453c63fada8,
         type: 3}
@@ -1426,6 +1616,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: displayName
+      value: reception
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: assignedColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: assignedColor.g
+      value: 0.6649082
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141338764399214, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: assignedColor.b
+      value: 0.08018869
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.5471698
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.43102527
+      objectReference: {fileID: 0}
+    - target: {fileID: 1832141339133990067, guid: 3821123bfb97d6a4ca76d453c63fada8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.29165182
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3821123bfb97d6a4ca76d453c63fada8, type: 3}

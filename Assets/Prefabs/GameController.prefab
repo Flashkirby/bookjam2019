@@ -234,7 +234,14 @@ MonoBehaviour:
   - {fileID: 8582145391314291784, guid: dc0f61473186b41418be285ed76e8529, type: 3}
   - {fileID: 8582145391314291784, guid: db347d89fcee2f94eb6523179c044cfb, type: 3}
   - {fileID: 8582145391314291784, guid: 2e2cbbc8f29f33743806cfc467463024, type: 3}
-  rooms: []
+  pfbEmployee: {fileID: 4186340501901331928, guid: a3acc700355e09349abffe98ef23990c,
+    type: 3}
+  pfbManager: {fileID: 2901744776802270876, guid: 5fcea9325dbf6474aaf035456c28164f,
+    type: 3}
+  pfbExecutive: {fileID: 3694041227651697326, guid: 728b84eb02470574bb3bfc36022aad9f,
+    type: 3}
+  pfbCEO: {fileID: 194169141413763324, guid: a6a7d1dbe47b7e445ac5e9883f253bb3, type: 3}
+  building: {fileID: 0}
   employees: []
   target: {fileID: 0}
   detective: {fileID: 0}

@@ -17,6 +17,11 @@ public class Game : MonoBehaviour
 
     private Dictionary<Person.RankEnum, int> rankBadgeDict;
 
+    public GameObject pfbEmployee;
+    public GameObject pfbManager;
+    public GameObject pfbExecutive;
+    public GameObject pfbCEO;
+
     public Building building;
     public List<Employee> employees;
 
@@ -41,6 +46,10 @@ public class Game : MonoBehaviour
     internal void PostBuildingAwake(Building building)
     {
         this.building = building;
+        foreach(Room room in building.allRooms)
+        {
+            room.GenerateAndAddPeople();
+        }
     }
 
     // Start is called before the first frame update, after being enabled
@@ -67,9 +76,10 @@ public class Game : MonoBehaviour
             //Game.S.detective.inMenu = true;
             //isStartSplash = true;
             isGameOver = false;
-            
+
 
             //Get Target
+            if (employees.Count == 0) Debug.LogError("No employees. This company is very flawed. ");
             target = employees.First();
 
             //TODO: Remove, debug for notebook

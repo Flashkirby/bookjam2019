@@ -6,9 +6,6 @@ using static Config;
 
 public class Detective : Person
 {
-    public float controlX;
-    public float controlY;
-
     public bool inMenu;
 
     public float anxiety;

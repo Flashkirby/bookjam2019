@@ -17,6 +17,9 @@ public class Person : MonoBehaviour
     /// <summary> Name in text used to refer to this in dialogue.  </summary>
     public string displayName;
 
+    public float controlX;
+    public float controlY;
+
     public bool isFacingRight { get { return transform.localScale.x > 0; } }
     public bool isWalking;
 
@@ -90,7 +93,7 @@ public class Person : MonoBehaviour
         features.body.Key.isWalking = isWalking;
     }
 
-    public void Walk(int direction)
+    public void Walk(int direction, float maxSpeed = Config.MAX_WALK_SPEED)
     {
         direction = Mathf.Clamp(direction, -1, 1);
         FaceDirection(direction);
@@ -99,17 +102,17 @@ public class Person : MonoBehaviour
         float newX = rigidBody.velocity.x + direction;
 
         //Assign new velocity and limit walk speed
-        if (newX < Config.MAX_WALK_SPEED && newX > -Config.MAX_WALK_SPEED)
+        if (newX < maxSpeed && newX > -maxSpeed)
         {
             rigidBody.velocity = rigidBody.velocity.SetX(newX);
         }
-        else if (newX >= Config.MAX_WALK_SPEED)
+        else if (newX >= maxSpeed)
         {
-            rigidBody.velocity = rigidBody.velocity.SetX(Config.MAX_WALK_SPEED);
+            rigidBody.velocity = rigidBody.velocity.SetX(maxSpeed);
         }
-        else if (newX <= -Config.MAX_WALK_SPEED)
+        else if (newX <= -maxSpeed)
         {
-            rigidBody.velocity = rigidBody.velocity.SetX(-Config.MAX_WALK_SPEED);
+            rigidBody.velocity = rigidBody.velocity.SetX(-maxSpeed);
         }
 
 

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 public static class Config
 {
-
-    public const float MAX_WALK_SPEED = 10;
+    public const float MAX_WALK_SPEED = 10f;
+    public const float MAX_EMPLOYEE_WALK_SPEED = 1f;
 
     public const float PIXEL = 0.0625f;
 
@@ -15,5 +15,9 @@ public static class Config
 
     public const float FLOOR_HEIGHT = 6;
 
-    public const float LIFT_SPEED = 1f;
+    public const float LIFT_SPEED = 2f;
+
+    public const float MINGLE_WAIT_MIN = 2f;
+    public const float MINGLE_WAIT_MAX = 10f;
+    public const float MINGLE_WALK_MAX = 2f;
 }

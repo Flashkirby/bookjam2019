@@ -54,6 +54,11 @@ public static class Utils
         else { return 0; }
     }
 
+    public static int RandomDir()
+    {
+        return 1 - 2 * Random.Range(0, 2);
+    }
+
     public static bool isAxisActive(float axis)
     {
         return axis > CONTROL_DEADZONE || axis < -CONTROL_DEADZONE;
