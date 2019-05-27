@@ -28,4 +28,8 @@ public static class Config
     public const float MINGLE_WALK_MIN = 2f;
     public const float MINGLE_WALK_MAX = 5f;
     public const float MINGLE_WALK_BUMP_TIME = 0.25f;
+
+    public const float ANXIETY_DIALOGUE_INCREASE = 0.05f;
+    public const float ANXIETY_DIALOGUE_WITH_TARGET_INCREASE = 0.30f;
+    public const float ANXIETY_WRONG_IDENTIFY_INCREASE = 0.30f;
 }

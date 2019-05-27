@@ -160,6 +160,9 @@ public class Detective : Person
             { Game.S.factBook.addClue(clue.ToFactBookString()); }
 
             DialogueFactory.StartDialogue(clues, employee, this);
+
+            //Increase anxiety
+            Game.S.detective.anxiety += ANXIETY_DIALOGUE_INCREASE;
         }
     }
 
@@ -176,6 +179,17 @@ public class Detective : Person
             // Stop and look at listener
             employee.mingleTime = -MINGLE_WAIT_MAX;
             employee.FaceDirection((int)(transform.position.x - employee.transform.position.x));
+
+            //TODO: How to compare?
+            if(employee == Game.S.target)
+            {
+                DialogueFactory.GenerateCorrectIdentifyDialogue(employee, this);
+                Game.S.GameWin();
+            } else
+            {
+                DialogueFactory.GenerateIncorrectIdentifyDialogue(employee, this);
+                Game.S.detective.anxiety += ANXIETY_WRONG_IDENTIFY_INCREASE;
+            }
 
             employee.transform.position = employee.transform.position.Sum3(0f, 1f, 0f);
 

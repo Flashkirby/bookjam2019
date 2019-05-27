@@ -36,14 +36,26 @@ public static class DialogueFactory
         return "Who?";
     }
 
-    public static string GenerateCorrectIdentifyDialogue()
+    public static void GenerateCorrectIdentifyDialogue(Person speaker, Person listener)
     {
-        return "Hi there! Nice to see you again!";
+        string speakerName = speaker.displayName;
+        bool isSpeakerRight = speaker.transform.position.x > listener.transform.position.x;
+
+        string correctIdentifyString = "Oh hi there! Nice to see you again!";
+        var d = new Dialogue(speakerName, isSpeakerRight, correctIdentifyString);
+        Debug.Log("Dialogue: " + d.dialogueText);
+        Game.S.dialogueQueue.Enqueue(d);
     }
 
-    public static string GenerateIncorrectIdentifyDialogue()
+    public static void GenerateIncorrectIdentifyDialogue(Person speaker, Person listener)
     {
-        return "What? No, I'm not.";
+        string speakerName = speaker.displayName;
+        bool isSpeakerRight = speaker.transform.position.x > listener.transform.position.x;
+
+        string correctIdentifyString = "What? What are you talking about?";
+        var d = new Dialogue(speakerName, isSpeakerRight, correctIdentifyString);
+        Debug.Log("Dialogue: " + d.dialogueText);
+        Game.S.dialogueQueue.Enqueue(d);
     }
 
     public static string generateFeatureDialogue(ClueFeature clue)
