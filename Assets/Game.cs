@@ -111,6 +111,12 @@ public class Game : MonoBehaviour
             if (employees.Count == 0) Debug.LogError("No employees. This company is very flawed. ");
             target = employees.PickRandom();
 
+            Name nameGen = new Name();
+            for (int i = 0; i < 100; i++)
+            {
+                Debug.Log(nameGen.GenerateRandomName());
+            }
+
             //TODO: Remove, debug for notebook
             //for (int i = 0; i < 20; i++)
             //{
