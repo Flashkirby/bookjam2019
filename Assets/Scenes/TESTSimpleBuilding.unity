@@ -1263,6 +1263,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64850409361931751, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: featurePoolHat.Array.data[16]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 64850409361931751, guid: d03f1f0fab755124e8a895a529a16821,
+        type: 3}
+      propertyPath: featurePoolGlasses.Array.data[11]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8799248838910114543, guid: d03f1f0fab755124e8a895a529a16821,
         type: 3}
       propertyPath: m_LocalPosition.y
