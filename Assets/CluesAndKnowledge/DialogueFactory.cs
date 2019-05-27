@@ -36,15 +36,31 @@ public static class DialogueFactory
         return "Who?";
     }
 
+    public static string GenerateCorrectIdentifyDialogue()
+    {
+        return "Hi there! Nice to see you again!";
+    }
+
+    public static string GenerateIncorrectIdentifyDialogue()
+    {
+        return "What? No, I'm not.";
+    }
+
     public static string generateFeatureDialogue(ClueFeature clue)
     {
         string baseString = "";
         if (clue.clueType == ClueTypes.Useless) { return "Sorry, I don't know what that person looks like."; }
-        if (clue.clueType == ClueTypes.Unsure) { baseString = "I think they"; }
-        if (clue.clueType == ClueTypes.Partial) { baseString = "As far as I know, they"; }
-        if (clue.clueType == ClueTypes.Complete) { baseString = "I'm sure they"; }
+        if (clue.clueType == ClueTypes.Unsure) { baseString = "I think they "; }
+        if (clue.clueType == ClueTypes.Partial) { baseString = "As far as I know, they "; }
+        if (clue.clueType == ClueTypes.Complete) { baseString = "I'm sure they "; }
 
+        string connectingString = "";
+        connectingString += clue.sortedFeatures[0].linkingVerb != "" ? clue.sortedFeatures[0].linkingVerb + " " : "";
+        connectingString += clue.sortedFeatures[0].adjective != "" ? clue.sortedFeatures[0].adjective + " " : "";
+        baseString += connectingString;
+       
         string featureString = "";
+
         string endingString = ".";
         if (clue.clueType == ClueTypes.Unsure)
         {
@@ -52,7 +68,13 @@ public static class DialogueFactory
                 clue.sortedFeatures[0].displayColour +
                 (clue.sortedFeatures[0].displayColour == "" ? "" : " ") +
                 clue.sortedFeatures[0].displayName;
+
+            string endingConnectingString = "";
+            endingConnectingString += clue.sortedFeatures[1].linkingVerb != "" ? clue.sortedFeatures[1].linkingVerb + " " : "";
+            endingConnectingString += clue.sortedFeatures[1].adjective != "" ? clue.sortedFeatures[1].adjective + " " : ""; ;
+
             endingString = " or " +
+                endingConnectingString + 
                 clue.sortedFeatures[1].displayColour +
                 (clue.sortedFeatures[1].displayColour == "" ? "" : " ") +
                 clue.sortedFeatures[1].displayName +
@@ -64,7 +86,7 @@ public static class DialogueFactory
         }
         else if (clue.clueType == ClueTypes.Complete)
         {
-            featureString += (clue.sortedFeatures[0].displayColour == "" ? "" : " ") + clue.sortedFeatures[0].displayName;
+            featureString += clue.sortedFeatures[0].displayColour + (clue.sortedFeatures[0].displayColour == "" ? "" : " ") + clue.sortedFeatures[0].displayName;
         }
 
         baseString += featureString;
@@ -78,9 +100,9 @@ public static class DialogueFactory
     {
         string baseString = "";
         if (clue.clueType == ClueTypes.Useless) { return "Sorry, I don't know where that person is."; }
-        if (clue.clueType == ClueTypes.Unsure) { baseString = "They're either on the"; }
-        if (clue.clueType == ClueTypes.Partial) { baseString = "As far as I know, they're on the"; }
-        if (clue.clueType == ClueTypes.Complete) { baseString = "I'm certain they're on the"; }
+        if (clue.clueType == ClueTypes.Unsure) { baseString = "They're either on the "; }
+        if (clue.clueType == ClueTypes.Partial) { baseString = "As far as I know, they're on the "; }
+        if (clue.clueType == ClueTypes.Complete) { baseString = "I'm certain they're on the "; }
 
         string featureString = "";
         string endingString = ".";
@@ -104,9 +126,9 @@ public static class DialogueFactory
     {
         string baseString = "";
         if (clue.clueType == ClueTypes.Useless) { return "Sorry, I don't where that person works."; }
-        if (clue.clueType == ClueTypes.Unsure) { baseString = "The might be in the"; }
-        if (clue.clueType == ClueTypes.Partial) { baseString = "I think I last saw them in the"; }
-        if (clue.clueType == ClueTypes.Complete) { baseString = "Oh yeah! They were just in the"; }
+        if (clue.clueType == ClueTypes.Unsure) { baseString = "The might be in the "; }
+        if (clue.clueType == ClueTypes.Partial) { baseString = "I think I last saw them in the "; }
+        if (clue.clueType == ClueTypes.Complete) { baseString = "Oh yeah! They were just in the "; }
 
         string featureString = "";
         string endingString = ".";

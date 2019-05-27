@@ -52,7 +52,7 @@ public class ClueRoom : IClue
         if (clueType == ClueTypes.Unsure)
         {
             featureString += sortedRooms[0].displayName;
-            endingString = " or " + sortedRooms[1].displayName;
+            endingString = " or the " + sortedRooms[1].displayName;
         }
         else if (clueType == ClueTypes.Partial || clueType == ClueTypes.Complete)
         {

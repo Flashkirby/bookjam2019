@@ -36,6 +36,9 @@ public class Game : MonoBehaviour
 
     public SplashScreen splashScreen;
 
+    public Camera camera;
+    private Vector3 offset;            //Private variable to store the offset distance between the player and camera
+
     public bool isGameOver = false;
     public bool isGameStarted = false;
     public bool isStartSplash = false;
@@ -59,12 +62,15 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update, after being enabled
     void Start()
     {
-
+        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
+        offset = camera.transform.position - detective.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
+        HandleDebugInput();
+
         HandleGameStart();
 
         HandleDialogue();
@@ -86,6 +92,13 @@ public class Game : MonoBehaviour
                 }
             }
         }
+    }
+
+    // LateUpdate is called after Update each frame
+    void LateUpdate()
+    {
+        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
+        camera.transform.position = detective.transform.position + offset;
     }
 
     private void HandleGameStart()
@@ -110,6 +123,12 @@ public class Game : MonoBehaviour
             //Get Target
             if (employees.Count == 0) Debug.LogError("No employees. This company is very flawed. ");
             target = employees.PickRandom();
+
+            Name nameGen = new Name();
+            for (int i = 0; i < 100; i++)
+            {
+                Debug.Log(nameGen.GenerateRandomName());
+            }
 
             //TODO: Remove, debug for notebook
             //for (int i = 0; i < 20; i++)
@@ -162,6 +181,26 @@ public class Game : MonoBehaviour
     void FixedUpdate()
     {
 
+    }
+
+    public void HandleDebugInput()
+    {
+        if (Input.GetButtonDown("DEBUG_ONE"))
+        {
+            Game.S.detective.anxiety += 0.5f;
+        }
+        if (Input.GetButtonDown("DEBUG_TWO"))
+        {
+            Game.S.detective.anxiety -= 0.5f;
+        }
+        if (Input.GetButtonDown("DEBUG_THREE"))
+        {
+            GameWin();
+        }
+        if (Input.GetButtonDown("DEBUG_FOUR"))
+        {
+            GameOver();
+        }
     }
 
     public void GenerateNewBadgeAssignment()
@@ -218,12 +257,27 @@ public class Game : MonoBehaviour
     public void GameOver()
     {
         string endString = "You became too anxious and decided to excuse yourself.\n\n"
-        + "You send an apologetic email and will probably try again tomorrow.\n\n"
+        + "You'll send an apologetic email and will probably try again tomorrow.\n\n"
         + "Try again? (Press Space to restart)";
 
         Debug.Log("Game Over!");
         splashScreen.ShowSplashScreen();
         splashScreen.splashText.text = endString;
+
+        Game.S.detective.inMenu = true;
+        isGameOver = true;
+    }
+
+    public void GameWin()
+    {
+        string winString = "You found who you were looking for!\n\n"
+        + "You'll probably want to remember what they look like next time.\n\n"
+        + "(Press Space to restart)";
+
+        Debug.Log("Game Win!");
+        splashScreen.ShowSplashScreen();
+        splashScreen.splashText.text = winString;
+
         Game.S.detective.inMenu = true;
         isGameOver = true;
     }
