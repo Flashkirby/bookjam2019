@@ -12,16 +12,47 @@ public class FeatureFactory : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Generating Person");
+        Debug.Log("Generating Person", person);
 
-        BodyFeature body = InstantiateBodyFeature(person);
-        int offset = body.headPixelYOffset;
+        bool stillClashing = false;
+        for (int i = 0; i < 6; i++)
+        {
+            BodyFeature body = InstantiateBodyFeature(person);
+            int offset = body.headPixelYOffset;
 
-        InstantiateHairFeature(person, null, offset);
-        InstantiateHatFeature(person, null, offset);
-        InstantiateFaceFeature(person, null, offset);
+            InstantiateHairFeature(person, null, offset);
+            InstantiateHatFeature(person, null, offset);
+            InstantiateFaceFeature(person, null, offset);
 
-        person.GenerateAdditionalFeatures(offset);
+            person.GenerateAdditionalFeatures(offset);
+
+            if (Game.S.target == null) break;
+            if (person == Game.S.detective) break;
+            if (person == Game.S.target) break;
+
+            // CLASSSH!
+            if (person.uniqueFeatureId == Game.S.target.uniqueFeatureId)
+            {
+                stillClashing = true;
+                person.features.body = new KeyValuePair<BodyFeature, Logic>();
+                person.features.ornaments.Clear();
+                foreach (Transform t in person.spriteOrigin.transform)
+                {
+                    Destroy(t.gameObject);
+                }
+                Debug.Log("Person." + person.uniqueFeatureId + " matched target, retrying " + i, person);
+            }
+            else
+            {
+                stillClashing = false;
+                break;
+            }
+        }
+        if (stillClashing)
+        {
+            Debug.Log("Can't generate non-clashing features, deleting person. ");
+            Destroy(person.gameObject);
+        }
 
         person.PostFeatureStart();
     }

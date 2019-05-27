@@ -59,7 +59,15 @@ public class Game : MonoBehaviour
     internal void PostBuildingAwake(Building building)
     {
         this.building = building;
-        foreach(Room room in building.allRooms)
+
+        // Add the target, setting unique identifier
+        Room randomRoom = building.allRooms[UnityEngine.Random.Range(0, building.allRooms.Count)];
+        List<Person.RankEnum> employeePool = randomRoom.GetRankPool();
+        Person.RankEnum rank = employeePool[UnityEngine.Random.Range(0, employeePool.Count)];
+        target = randomRoom.InstantiatePrefabFromRank(rank);
+
+        // Populate the rest of the building
+        foreach (Room room in building.allRooms)
         {
             room.GenerateAndAddPeople();
         }
@@ -150,13 +158,12 @@ public class Game : MonoBehaviour
 
             //Get Target
             if (employees.Count == 0) Debug.LogError("No employees. This company is very flawed. ");
-            target = employees.PickRandom();
 
-            Name nameGen = new Name();
-            for (int i = 0; i < 100; i++)
-            {
-                Debug.Log(nameGen.GenerateRandomName());
-            }
+            //Name nameGen = new Name();
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    Debug.Log(nameGen.GenerateRandomName());
+            //}
 
             //TODO: Remove, debug for notebook
             //for (int i = 0; i < 20; i++)

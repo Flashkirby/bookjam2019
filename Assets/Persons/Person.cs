@@ -24,11 +24,35 @@ public class Person : MonoBehaviour
     public bool isWalking;
 
     public bool interacted;
-
-    public string featureNameList;
     public List<string> _debugFeaturDisplayList;
 
-    public bool featuresInitialised { get { return features.body.Key != null; } }
+    public uint uniqueFeatureId
+    {
+        get
+        {
+            uint hash = 0;
+            var list = features.getTrueOrnaments();
+            foreach (var f in list)
+            {
+                foreach (char c in (f.displayName + f.displayColour))
+                { hash += (uint)(c * (list.Count + 1)); }
+            }
+            return hash;
+        }
+    }
+
+    public string FeatureNameList
+    {
+        get
+        {
+            string featureNameList = features.body.Key.name;
+            foreach (var feature in features.ornaments)
+            {
+                featureNameList += feature.Key.name;
+            }
+            return featureNameList;
+        }
+    }
 
     public void Awake()
     {
@@ -41,7 +65,7 @@ public class Person : MonoBehaviour
         displayName = "Person Smith"; //Generate New Name
     }
 
-    /// <summary> Override this in subclasses for more features </summary>
+    /// <summary> Override this in subclasses for more features. </summary>
     public virtual void GenerateAdditionalFeatures(int yPixelOffset) { }
 
     /// <summary>
@@ -49,12 +73,8 @@ public class Person : MonoBehaviour
     /// </summary>
     public void PostFeatureStart()
     {
-        featureNameList += features.body.Key.name;
         foreach (var feature in features.ornaments)
-        {
-            featureNameList += feature.Key.name;
-            _debugFeaturDisplayList.Add(feature.Key.displayColour + feature.Key.displayName);
-        }
+        { _debugFeaturDisplayList.Add(feature.Key.displayColour + feature.Key.displayName); }
         Debug.Log("generated person " + _debugFeaturDisplayList);
     }
 
