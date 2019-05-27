@@ -10,7 +10,6 @@ public static class ClueFactory
         Partial, //I think they wear a hat / I think they wear something green
         Unsure, //Either or
         Complete, // They wear a green bowler hat.
-        TESTING,
     }
 
     private static Dictionary<ClueTypes, int> LowLevelEmployeeClueProbs = new Dictionary<ClueTypes, int>()
@@ -47,13 +46,12 @@ public static class ClueFactory
     //Manager of the employee
 
 
-    public static IClue GenerateRandomClueFromEmployeeAndTarget(Employee employee, Employee target)
+    public static IClue GenerateRandomClueFromEmployee(Employee employee)
     {
-        // TODO: Logic here please.
         int roll = rnd.Next(1, 101);
 
         //Generating random clue type
-        ClueTypes randomClueType = ClueTypes.TESTING;
+        ClueTypes randomClueType = ClueTypes.Useless;
         switch (employee.rank)
         {
             case Person.RankEnum.Employee:
@@ -76,25 +74,36 @@ public static class ClueFactory
                 break;
         }
 
-        Debug.Log("Randomly Rolled: " + roll);
-        Debug.Log("Random Clue Category: " + randomClueType);
-
         //if (Employee.currentLocation == Target.currentLocation)
         //{
         //
         //}
 
-        //TODO: Pick feature
-        Feature feature = new Feature();
-
-        IClue generatedClue = new ClueFeature(randomClueType, feature); ;
+        IClue generatedClue = null;
+        int clueCategoryRoll = rnd.Next(1, 101);
+        if(clueCategoryRoll <= 70)
+        {
+            var features = Game.S.target.features.getTrueOrnaments();
+            Feature targetFeature = features.PickRandom();
+            generatedClue = new ClueFeature(randomClueType, targetFeature);
+        }
+        else if (clueCategoryRoll <= 90)
+        {
+            var floor = Game.S.target.CurrentLocation.floor;
+            generatedClue = new ClueFloor(randomClueType, floor);
+        }
+        else
+        {
+            var room = Game.S.target.CurrentLocation;
+            generatedClue = new ClueRoom(randomClueType, room);
+        }
 
         return generatedClue;
     }
 
     private static ClueTypes PickClueCategory(int randomRoll, Dictionary<ClueTypes, int> probabilities)
     {
-        ClueTypes clue = ClueTypes.TESTING;
+        ClueTypes clue = ClueTypes.Useless;
         int totalWeight = 0;
         foreach (KeyValuePair<ClueTypes, int> entry in probabilities)
         {

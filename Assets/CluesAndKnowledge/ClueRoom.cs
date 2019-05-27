@@ -71,7 +71,7 @@ public class ClueRoom : IClue
         if (clueType == ClueTypes.Useless) { return "USELESS"; }
         if (clueType == ClueTypes.Unsure) { baseString = "Room Location: "; }
         if (clueType == ClueTypes.Partial) { baseString = "Room Location: "; }
-        if (clueType == ClueTypes.Complete) { baseString = "They're on the : "; }
+        if (clueType == ClueTypes.Complete) { baseString = "Room Location: "; }
 
         string featureString = "";
         string endingString = "";

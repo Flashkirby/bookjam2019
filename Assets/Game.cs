@@ -80,30 +80,26 @@ public class Game : MonoBehaviour
 
             //Get Target
             if (employees.Count == 0) Debug.LogError("No employees. This company is very flawed. ");
-            target = employees.First();
+            target = employees.PickRandom();
 
             //TODO: Remove, debug for notebook
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
             {
                 var features = target.features.getTrueOrnaments();
                 Feature debugFeature = features.PickRandom();
 
-                var rooms = target.CurrentLocation;
-                Feature debugRoom = features.PickRandom();
+                Room debugRoom = target.CurrentLocation;
 
-                var floors = target.CurrentLocation;
-                Feature debugFloor = features.PickRandom();
+                Floor debugFloor = target.CurrentLocation.floor;
 
                 var clueTypeArray = Enum.GetValues(typeof(ClueFactory.ClueTypes));
                 ClueFactory.ClueTypes randomClueType = (ClueFactory.ClueTypes)clueTypeArray.GetValue(Utils.rnd.Next(clueTypeArray.Length));
 
-
-
                 IClue debugClueFeature = new ClueFeature(randomClueType, debugFeature);
                 factBook.addClue(debugClueFeature.ToFactBookString());
-                IClue debugClueRoom = new ClueFeature(randomClueType, debugRoom);
+                IClue debugClueRoom = new ClueRoom(randomClueType, debugRoom);
                 factBook.addClue(debugClueRoom.ToFactBookString());
-                IClue debugClueFloor = new ClueFeature(randomClueType, debugFloor);
+                IClue debugClueFloor = new ClueFloor(randomClueType, debugFloor);
                 factBook.addClue(debugClueFloor.ToFactBookString());
             }
 

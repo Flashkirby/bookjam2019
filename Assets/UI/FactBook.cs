@@ -93,16 +93,17 @@ public class FactBook : MonoBehaviour
         string testPageText = "";
         foreach (string clue in clueList)
         {
-            string formattedClue = "\n\n" + clue;
+            string markedClue = "* " + clue;
+            string newLineAndMarkedClue = "\n" + markedClue;
 
 
             if (testPageText == "")
             {
-                testPageText += clue;
+                testPageText += markedClue;
             }
             else
             {
-                testPageText += formattedClue;
+                testPageText += newLineAndMarkedClue;
             }
             testPage.text = testPageText;
 
@@ -115,20 +116,20 @@ public class FactBook : MonoBehaviour
             {
                 if(pageOne.text == "")
                 {
-                    pageOne.text += clue;
+                    pageOne.text += markedClue;
                 } else
                 {
-                    pageOne.text += formattedClue;
+                    pageOne.text += newLineAndMarkedClue;
                 }
             } else
             {
                 if (pageTwo.text == "")
                 {
-                    pageTwo.text += clue;
+                    pageTwo.text += markedClue;
                 }
                 else
                 {
-                    pageTwo.text += formattedClue;
+                    pageTwo.text += newLineAndMarkedClue;
                 }
             }
         }
