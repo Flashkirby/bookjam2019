@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 7961580091281305177}
   - component: {fileID: 2897859920559335843}
   - component: {fileID: 21149312006174310}
+  - component: {fileID: 1609481613712632076}
   m_Layer: 8
   m_Name: Detective
   m_TagString: Player
@@ -170,14 +171,21 @@ MonoBehaviour:
   controlY: 0
   isWalking: 0
   interacted: 0
-  featureNameList: 
   _debugFeaturDisplayList: []
   inMenu: 0
   anxiety: 0
   talkCooldown: 0
-  talkLongPress: 0
+  interactHoldTime: 0
   sceneActionIcon: {fileID: 7707683447882474357}
   interactHighlighter: {fileID: 5530320441569748594}
+--- !u!81 &1609481613712632076
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897859920559335841}
+  m_Enabled: 1
 --- !u!1 &2897859920959284151
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,6 +416,7 @@ MonoBehaviour:
   - {fileID: 21300026, guid: 3fd7460c6d3357a498406a74cefec043, type: 3}
   - {fileID: 21300028, guid: 3fd7460c6d3357a498406a74cefec043, type: 3}
   - {fileID: 21300030, guid: 3fd7460c6d3357a498406a74cefec043, type: 3}
+  hideIcon: 0
   altIcon: 0
   sliderShow: 0
 --- !u!1 &8948095158646075371

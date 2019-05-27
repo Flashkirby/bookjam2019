@@ -15,6 +15,8 @@ public class LiftShaft : MonoBehaviour
     public int targetFloor = 0;
     public float goalY;
 
+    public AudioSource sceneElevatorAudio;
+
     // Update is called once per frame
     public void Update()
     {
@@ -74,6 +76,7 @@ public class LiftShaft : MonoBehaviour
     public void ArrivedAtFloor(Floor floor)
     {
         Debug.Log(floor.displayName);
+        sceneElevatorAudio.Play();
     }
 
     void OnTriggerEnter2D(Collider2D other)
