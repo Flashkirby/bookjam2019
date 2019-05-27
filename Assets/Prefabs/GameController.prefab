@@ -344,7 +344,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   featureBodies:
-  - {fileID: 5580055000238847261, guid: 39a3a2f81c9ccec47a3302642e39dd80, type: 3}
+  - {fileID: 4689054050160726787, guid: 4ad775aaeee91494ab8c9ecad52c4548, type: 3}
+  - {fileID: 8843544477266894463, guid: c2c18eceb528e444f9abad5828f62a46, type: 3}
+  - {fileID: 5295477533783914, guid: 6a1efcda861787f45b1202f99a0e8e9f, type: 3}
+  - {fileID: 2833718212531201569, guid: 2fb9f22b87ef6d04f8682dbdec6e076b, type: 3}
+  - {fileID: 1521435241407914608, guid: 7afdc5c0ebfd731429b961dbbd7ebc21, type: 3}
+  - {fileID: 4841159429794268621, guid: dc1d2625fc1dbed4d805c2a178096732, type: 3}
+  - {fileID: 1890148199076551239, guid: 775717c6ff75a4f489fcd9e8110549b0, type: 3}
+  - {fileID: 3202658707950277481, guid: facd9a79e63dd03449be99ccddf86b2f, type: 3}
+  - {fileID: 6675804482751117951, guid: 023d51a7021cd69449a1813969c79e39, type: 3}
+  - {fileID: 7585242283251168509, guid: f99e728defa9aab4eac8a3a674e1025a, type: 3}
+  - {fileID: 9178706269099480994, guid: e5911117c21bf7649a27965f65422b4f, type: 3}
+  - {fileID: 824698957823357468, guid: abc11352c66e59245b04470b0549bd1c, type: 3}
+  - {fileID: 8976491607397357016, guid: 54fd6d4e982831f47b2b246111dadd7c, type: 3}
+  - {fileID: 2278910028884639551, guid: 38346f70cc1fbeb4dab1cfab10862080, type: 3}
+  - {fileID: 6987221505052601056, guid: d25c910179cbc384181fd534a7a84ac6, type: 3}
+  - {fileID: 3940034600275548616, guid: 28cc1570235033243b13d1bc267aeb01, type: 3}
   featurePoolHair:
   - {fileID: 7763419484329149465, guid: 63659a8d5a3c6a045a1c27a94b1bf3a2, type: 3}
   - {fileID: 7642506603834718373, guid: c9dbd65e5c89da040b5165967ec66b01, type: 3}
@@ -433,6 +448,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9890398274314804}
     m_Modifications:
+    - target: {fileID: 4593284823500726527, guid: cc5c5ec8a3a92ff42924cca114d88864,
+        type: 3}
+      propertyPath: m_Name
+      value: UIController
+      objectReference: {fileID: 0}
     - target: {fileID: 2595492495050799406, guid: cc5c5ec8a3a92ff42924cca114d88864,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -487,11 +507,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4593284823500726527, guid: cc5c5ec8a3a92ff42924cca114d88864,
-        type: 3}
-      propertyPath: m_Name
-      value: UIController
       objectReference: {fileID: 0}
     - target: {fileID: 2801389719249184224, guid: cc5c5ec8a3a92ff42924cca114d88864,
         type: 3}

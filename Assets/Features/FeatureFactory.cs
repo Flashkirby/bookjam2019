@@ -102,8 +102,7 @@ public class FeatureFactory : MonoBehaviour
     {
         if(prefabBodyFeature == null)
         {
-            // TODO: RANDOM BODY
-            prefabBodyFeature = Game.S.featureBodies[0];
+            prefabBodyFeature = Game.S.featureBodies[Random.Range(0, Game.S.featureBodies.Count)];
         }
 
         BodyFeature body = (BodyFeature)InstantiateFeature(person, prefabBodyFeature);
