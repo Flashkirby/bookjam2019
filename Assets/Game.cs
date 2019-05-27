@@ -42,6 +42,12 @@ public class Game : MonoBehaviour
     public bool isGameOver = false;
     public bool isGameStarted = false;
     public bool isStartSplash = false;
+    private float splashScreenDelay;
+
+    public bool isGameAboutToWin = false;
+    public bool isGameAboutToOver = false;
+
+    public bool triedToQuestionTarget = false;
 
     // Awake is called on initialisation, before the component becomes active
     void Awake()
@@ -75,11 +81,28 @@ public class Game : MonoBehaviour
 
         HandleDialogue();
 
+        //Dialogue blocks game from ending, so we have this terrible hack
+        if(dialogueQueue.Count == 0)
+        {
+            if (isGameAboutToWin)
+            {
+                GameWin();
+            }
+            if (isGameAboutToOver)
+            {
+                GameOver();
+            }
+        }
+
         if (detective.inMenu)
         {
             if (isGameOver)
             {
-                if (Input.GetButtonDown("Fire1"))
+                if(splashScreenDelay < 0.1f)
+                {
+                    splashScreenDelay += Time.deltaTime;
+                }
+                if (Input.GetButtonDown("Fire1") && splashScreenDelay > 0.1f)
                 {
                     HandleRestart();
                 }
@@ -192,19 +215,19 @@ public class Game : MonoBehaviour
     {
         if (Input.GetButtonDown("DEBUG_ONE"))
         {
-            Game.S.detective.anxiety += 0.5f;
+            Game.S.detective.anxiety += 0.20f;
         }
         if (Input.GetButtonDown("DEBUG_TWO"))
         {
-            Game.S.detective.anxiety -= 0.5f;
+            Game.S.detective.anxiety -= 0.20f;
         }
         if (Input.GetButtonDown("DEBUG_THREE"))
         {
-            GameWin();
+            SetGameWin();
         }
         if (Input.GetButtonDown("DEBUG_FOUR"))
         {
-            GameOver();
+            SetGameOver();
         }
     }
 
@@ -259,11 +282,31 @@ public class Game : MonoBehaviour
         return null;
     }
 
+    public void SetGameOver()
+    {
+        isGameAboutToOver = true;
+    }
+
+    public void SetGameWin()
+    {
+        isGameAboutToWin = true; 
+    }
+
     public void GameOver()
     {
+
+
         string endString = "You became too anxious and decided to excuse yourself.\n\n"
         + "You'll send an apologetic email and will probably try again tomorrow.\n\n"
         + "Try again? (Press Space to restart)";
+
+        if (triedToQuestionTarget)
+        {
+           endString = "You found who you were looking for!\n\n"
+            + "Unfortunatley you got so embarassed, that you had to excuse yourself and leave.\n\n"
+            + "Maybe you'll try again, when you're feeling a bit more brave.\n\n"
+            + "Try again? (Press Space to restart)";
+        }
 
         Debug.Log("Game Over!");
         splashScreen.ShowSplashScreen();

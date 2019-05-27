@@ -172,16 +172,30 @@ public class Detective : Person
             employee.mingleTime = -MINGLE_WAIT_MAX;
             employee.FaceDirection((int)(transform.position.x - employee.transform.position.x));
 
-            // HMMM IS A CLUE
-            List<IClue> clues = new List<IClue>();
-            clues.Add(ClueFactory.GenerateRandomClueFromEmployee(employee));
-            foreach (var clue in clues)
-            { Game.S.factBook.addClue(clue.ToFactBookString()); }
+            if(employee == Game.S.target)
+            {
+                DialogueFactory.GenerateTalkingToTargetDialogue(employee, this);
+                Game.S.triedToQuestionTarget = true;
+                //Increase anxiety
+                Game.S.detective.anxiety += ANXIETY_DIALOGUE_WITH_TARGET_INCREASE;
+                if(Game.S.detective.anxiety < 1.0f)
+                {
+                    Game.S.SetGameWin();
+                }
+            } else
+            {
+                // HMMM IS A CLUE
+                List<IClue> clues = new List<IClue>();
+                clues.Add(ClueFactory.GenerateRandomClueFromEmployee(employee));
+                foreach (var clue in clues)
+                { Game.S.factBook.addClue(clue.ToFactBookString()); }
 
-            DialogueFactory.StartDialogue(clues, employee, this);
+                DialogueFactory.StartDialogue(clues, employee, this);
 
-            //Increase anxiety
-            Game.S.detective.anxiety += ANXIETY_DIALOGUE_INCREASE;
+                //Increase anxiety
+                Game.S.detective.anxiety += ANXIETY_DIALOGUE_INCREASE;
+            }
+
         }
     }
 
@@ -199,11 +213,10 @@ public class Detective : Person
             employee.mingleTime = -MINGLE_WAIT_MAX;
             employee.FaceDirection((int)(transform.position.x - employee.transform.position.x));
 
-            //TODO: How to compare?
             if (employee == Game.S.target)
             {
                 DialogueFactory.GenerateCorrectIdentifyDialogue(employee, this);
-                Game.S.GameWin();
+                Game.S.SetGameWin();
             }
             else
             {
@@ -227,7 +240,7 @@ public class Detective : Person
         }
         if (anxiety >= 1)
         {
-            Game.S.GameOver();
+            Game.S.SetGameOver();
         }
     }
 }

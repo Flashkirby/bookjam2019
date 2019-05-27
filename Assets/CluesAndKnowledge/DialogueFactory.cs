@@ -58,6 +58,17 @@ public static class DialogueFactory
         Game.S.dialogueQueue.Enqueue(d);
     }
 
+    public static void GenerateTalkingToTargetDialogue(Person speaker, Person listener)
+    {
+        string speakerName = speaker.displayName;
+        bool isSpeakerRight = speaker.transform.position.x > listener.transform.position.x;
+
+        string correctIdentifyString = "Of course I know what they look like, they're me!";
+        var d = new Dialogue(speakerName, isSpeakerRight, correctIdentifyString);
+        Debug.Log("Dialogue: " + d.dialogueText);
+        Game.S.dialogueQueue.Enqueue(d);
+    }
+
     public static string generateFeatureDialogue(ClueFeature clue)
     {
         string baseString = "";
