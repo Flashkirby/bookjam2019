@@ -252,6 +252,9 @@ MonoBehaviour:
   isGameOver: 0
   isGameStarted: 0
   isStartSplash: 0
+  isGameAboutToWin: 0
+  isGameAboutToOver: 0
+  triedToQuestionTarget: 0
 --- !u!1001 &8450559796441357705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -259,11 +262,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9890398274314804}
     m_Modifications:
-    - target: {fileID: 4593284823500726527, guid: cc5c5ec8a3a92ff42924cca114d88864,
-        type: 3}
-      propertyPath: m_Name
-      value: UIController
-      objectReference: {fileID: 0}
     - target: {fileID: 2595492495050799406, guid: cc5c5ec8a3a92ff42924cca114d88864,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -318,6 +316,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4593284823500726527, guid: cc5c5ec8a3a92ff42924cca114d88864,
+        type: 3}
+      propertyPath: m_Name
+      value: UIController
       objectReference: {fileID: 0}
     - target: {fileID: 2801389719249184224, guid: cc5c5ec8a3a92ff42924cca114d88864,
         type: 3}

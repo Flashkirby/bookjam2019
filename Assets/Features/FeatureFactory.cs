@@ -54,6 +54,34 @@ public class FeatureFactory : MonoBehaviour
             Destroy(person.gameObject);
         }
 
+        bool isNameClashing = false;
+        Name nameGen = new Name();
+        for (int i = 0; i < 6; i++)
+        {
+            person.displayName = nameGen.GenerateRandomName();
+
+            if (Game.S.target == null) break;
+            if (person == Game.S.detective) break;
+            if (person == Game.S.target) break;
+
+            // CLASSSH!
+            if (person.displayName == Game.S.target.displayName)
+            {
+                isNameClashing = true;
+            }
+            else
+            {
+                isNameClashing = false;
+                break;
+            }
+
+        }
+        if (isNameClashing)
+        {
+            Debug.Log("Can't generate non-clashing name, deleting person. ");
+            Destroy(person.gameObject);
+        }
+
         person.PostFeatureStart();
     }
 
