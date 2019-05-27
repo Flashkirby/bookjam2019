@@ -31,6 +31,13 @@ public class FactBook : MonoBehaviour
 
     public void OpenFactBook()
     {
+
+        if (Game.S.detective.identifyingSoundPlaying)
+        {
+            Game.S.detective.identifyingSoundPlaying = false;
+            Game.S.globalAudioPlayer.Stop();
+        }
+
         gameObject.SetActive(true);
         Game.S.detective.inMenu = true;
     }
